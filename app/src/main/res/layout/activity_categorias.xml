@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context="projetomps.com.notech.CategoriasActivity"
+
+
+        >
+
+        <ImageView
+            android:id="@+id/categoriasInteligenciaAtificial"
+            android:layout_width="0dp"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/inteligencia_artificial" />
+
+
+        <ImageView
+            android:id="@+id/categoriasIOT"
+            android:layout_width="0dp"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/categoriasInteligenciaAtificial"
+            app:srcCompat="@drawable/internet_of_things" />
+
+        <ImageView
+            android:id="@+id/categoriasCloudComputing"
+            android:layout_width="0dp"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/categoriasIOT"
+            app:srcCompat="@drawable/cloud_computing" />
+
+        <ImageView
+            android:id="@+id/categoriasHardware"
+            android:layout_width="0dp"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/categoriasCloudComputing"
+            app:srcCompat="@drawable/hardware" />
+
+        <ImageView
+            android:id="@+id/categoriasBigData"
+            android:layout_width="0dp"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/categoriasHardware"
+            app:srcCompat="@drawable/bigdata" />
+
+
+
+    </android.support.constraint.ConstraintLayout>
+
+
+
+</ScrollView>
