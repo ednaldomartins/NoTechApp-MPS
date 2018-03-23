@@ -15,54 +15,54 @@ import java.io.ByteArrayOutputStream;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ImageView imagemView;
-    private TextView tituloView, textoView, autorView, dataView;
+    private ImageView capaNoticia;
+    private TextView tituloNoticia, textoNoticia, autorNoticia, dataNoticia;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        tituloView = (TextView) findViewById(R.id.mainTitulo);
-        imagemView = (ImageView) findViewById(R.id.mainImagem);
-        textoView = (TextView) findViewById(R.id.mainTexto);
-        autorView = (TextView) findViewById(R.id.mainAutor);
-        dataView = (TextView) findViewById(R.id.mainData);
+        tituloNoticia = (TextView) findViewById(R.id.mainTitulo);
+        capaNoticia = (ImageView) findViewById(R.id.mainImagem);
+        textoNoticia = (TextView) findViewById(R.id.mainTexto);
+        autorNoticia = (TextView) findViewById(R.id.mainAutor);
+        dataNoticia = (TextView) findViewById(R.id.mainData);
 
         /*
             como as views estão separadas todas elas devem chamar o metodo abrirNoticia
             usando cardView ou similar nao serah preciso.
          */
 
-        imagemView.setOnClickListener(new View.OnClickListener() {
+        capaNoticia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 abrirNoticia();
             }
         });
 
-        tituloView.setOnClickListener(new View.OnClickListener() {
+        tituloNoticia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 abrirNoticia();
             }
         });
 
-        textoView.setOnClickListener(new View.OnClickListener() {
+        textoNoticia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 abrirNoticia();
             }
         });
 
-        autorView.setOnClickListener(new View.OnClickListener() {
+        autorNoticia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 abrirNoticia();
             }
         });
 
-        dataView.setOnClickListener(new View.OnClickListener() {
+        dataNoticia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 abrirNoticia();
@@ -109,10 +109,10 @@ public class MainActivity extends AppCompatActivity {
 
         Intent intent = new Intent(MainActivity.this, NoticiaActivity.class);
         intent.putExtra("imagem", imagemMateria );
-        intent.putExtra("titulo", tituloView.getText().toString() );
-        intent.putExtra("texto", textoView.getText().toString() );
-        intent.putExtra("autor", autorView.getText().toString() );
-        intent.putExtra("data", dataView.getText().toString() );
+        intent.putExtra("titulo", tituloNoticia.getText().toString() );
+        intent.putExtra("texto", textoNoticia.getText().toString() );
+        intent.putExtra("autor", autorNoticia.getText().toString() );
+        intent.putExtra("data", dataNoticia.getText().toString() );
         startActivity(intent);
 
     }
