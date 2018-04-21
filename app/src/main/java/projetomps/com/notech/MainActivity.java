@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         autorNoticia = (TextView) findViewById(R.id.mainAutor);
         dataNoticia = (TextView) findViewById(R.id.mainData);
 
-        //testando com cardView
+        //testando com cardView (serah removido nas novas versoes)
         cardNoticia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
