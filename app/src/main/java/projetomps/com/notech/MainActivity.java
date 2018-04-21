@@ -42,43 +42,6 @@ public class MainActivity extends AppCompatActivity {
             usando cardView ou similar nao serah preciso.
          */
 
-        /*
-        capaNoticia.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                abrirNoticia();
-            }
-        });
-
-        tituloNoticia.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                abrirNoticia();
-            }
-        });
-
-        textoNoticia.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                abrirNoticia();
-            }
-        });
-
-        autorNoticia.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                abrirNoticia();
-            }
-        });
-
-        dataNoticia.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                abrirNoticia();
-            }
-        });
-
-*/
         //testando com cardView
         cardNoticia.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,9 +49,6 @@ public class MainActivity extends AppCompatActivity {
                 abrirNoticia();
             }
         });
-
-
-
 
     }
 
