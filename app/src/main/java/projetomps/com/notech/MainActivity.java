@@ -36,12 +36,6 @@ public class MainActivity extends AppCompatActivity {
         autorNoticia = (TextView) findViewById(R.id.mainAutor);
         dataNoticia = (TextView) findViewById(R.id.mainData);
 
-        /*
-            como as views estão separadas todas ela
-        if (opt == R.id.action_cas devem chamar o metodo abrirNoticia
-            usando cardView ou similar nao serah preciso.
-         */
-
         //testando com cardView
         cardNoticia.setOnClickListener(new View.OnClickListener() {
             @Override
