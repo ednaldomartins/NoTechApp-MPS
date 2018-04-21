@@ -3,8 +3,10 @@ package projetomps.com.notech;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -15,6 +17,8 @@ import java.io.ByteArrayOutputStream;
 
 public class MainActivity extends AppCompatActivity {
 
+    private CardView cardNoticia;
+    private ConstraintLayout cardLayout;
     private ImageView capaNoticia;
     private TextView tituloNoticia, textoNoticia, autorNoticia, dataNoticia;
 
@@ -23,6 +27,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        cardNoticia = (CardView) findViewById(R.id.mainCardView);
+        cardLayout = (ConstraintLayout) findViewById(R.id.mainCardLayout);
+
         tituloNoticia = (TextView) findViewById(R.id.mainTitulo);
         capaNoticia = (ImageView) findViewById(R.id.mainImagem);
         textoNoticia = (TextView) findViewById(R.id.mainTexto);
@@ -30,10 +37,12 @@ public class MainActivity extends AppCompatActivity {
         dataNoticia = (TextView) findViewById(R.id.mainData);
 
         /*
-            como as views estão separadas todas elas devem chamar o metodo abrirNoticia
+            como as views estão separadas todas ela
+        if (opt == R.id.action_cas devem chamar o metodo abrirNoticia
             usando cardView ou similar nao serah preciso.
          */
 
+        /*
         capaNoticia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -69,6 +78,18 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+*/
+        //testando com cardView
+        cardNoticia.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                abrirNoticia();
+            }
+        });
+
+
+
+
     }
 
 
@@ -83,7 +104,6 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
 
         int opt = item.getItemId();
-
         if (opt == R.id.action_categorias) {
             startActivity(new Intent(MainActivity.this, CategoriasActivity.class));
         }

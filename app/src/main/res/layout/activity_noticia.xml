@@ -65,7 +65,7 @@ android:fillViewport="true">
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/noticiaAutorId" />
+        app:layout_constraintTop_toBottomOf="@+id/noticiaComentar" />
 
     <TextView
         android:id="@+id/noticiaAutorId"
@@ -79,6 +79,38 @@ android:fillViewport="true">
         android:textStyle="italic"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/noticiaTituloId" />
+
+    <ImageView
+        android:id="@+id/noticiaGostar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/noticiaComentar"
+        app:layout_constraintTop_toBottomOf="@+id/noticiaAutorId"
+        app:srcCompat="@drawable/ic_action_gostar" />
+
+    <ImageView
+        android:id="@+id/noticiaComentar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/noticiaAutorId"
+        app:srcCompat="@drawable/ic_action_comentarios" />
+
+    <ImageView
+        android:id="@+id/noticiaReportar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toEndOf="@+id/noticiaComentar"
+        app:layout_constraintTop_toBottomOf="@+id/noticiaAutorId"
+        app:srcCompat="@drawable/ic_action_reportar" />
 
 </android.support.constraint.ConstraintLayout>
 
