@@ -8,14 +8,20 @@ import com.loopj.android.http.JsonHttpResponseHandler;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 
+import projetomps.com.notech.R;
+
 public class NoticiaClient {
     private static final String API_BASE_URL = "https://newsapi.org/v2/";
-    //TODO: pegar chave da API GOOGLE  NEWS
-    private static final String API_KEY = "";
+    private static String API_KEY;
     private AsyncHttpClient cliente;
 
-    public NoticiaClient() {
+    /**
+     * Contrutor com chave da api google news
+     * @param API_KEY Chave da api google news
+     */
+    public NoticiaClient(final String API_KEY) {
         cliente = new AsyncHttpClient();
+        this.API_KEY = API_KEY;
     }
 
     /**
