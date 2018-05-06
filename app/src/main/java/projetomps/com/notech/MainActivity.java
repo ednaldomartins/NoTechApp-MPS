@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.list_noticia);
 
         cardNoticia = (CardView) findViewById(R.id.mainCardView);
         cardLayout = (ConstraintLayout) findViewById(R.id.mainCardLayout);
