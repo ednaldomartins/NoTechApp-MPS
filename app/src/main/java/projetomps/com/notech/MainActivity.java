@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.list_noticia);
 
         tituloNoticia = (TextView) findViewById(R.id.mainTitulo);
         capaNoticia = (ImageView) findViewById(R.id.mainImagem);
