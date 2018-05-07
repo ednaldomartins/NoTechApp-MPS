@@ -1,6 +1,8 @@
-package projetomps.com.notech;
+package projetomps.com.notech.model;
 
 import java.util.ArrayList;
+
+import projetomps.com.notech.model.Denuncia;
 
 public class Resposta {
 

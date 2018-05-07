@@ -1,6 +1,8 @@
-package projetomps.com.notech;
+package projetomps.com.notech.model;
 
-public class Denuncia {
+import java.io.Serializable;
+
+public class Denuncia implements Serializable {
     private int quantidadeDeDenuncias;
     private String texto;
     private String tipoDaDenuncia;

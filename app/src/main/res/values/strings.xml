@@ -1,6 +1,12 @@
 <resources>
+    <string name="action_settings">Settings</string>
+    <string name="action_add_favourite">Add to Favourites</string>
+    <string name="action_play_next">Play Next</string>
+    <string name="backdrop_title">No Tech</string>
+    <string name="backdrop_subtitle">Projeto de MPS</string>
     <string name="app_name">NoTech</string>
-
+    <string name="titulo">McAfee, do MIT: conversa sobre tecnologia deve ser mais positiva</string>
+    <string name="autor">Thiago Lavado</string>
     <string name="noticia_mcafee">Mais do que um grande centro de ensino americano, o Massachusetts Institute of Technology (MIT) também tem como missão expandir o conhecimento para outros lugares do mundo. Nesse sentido, é no MIT que está a Iniciativa de Economia Digital (IDE), uma organização que pretende colocar pessoas e negócios juntos em prol da transformação digital.
 Todos os anos, o IDE promove o Desafio de Inovação Inclusiva (IIC, na sigla em inglês), que entrega mais de 1 milhão de dólares em prêmios para empreendedores de todos os continentes que usam a tecnologia para promover mudanças no local de trabalho. Em 2018, 12 organizações finalistas na América Latina serão premiadas em São Paulo. Em outubro, as quatro primeiras colocadas vão para a final do desafio nos Estados Unidos. Os temas deste ano são inclusão financeira, crescimento de renda, criação de novos trabalhos na era digital e acesso à tecnologia — cada uma recebendo 250.000 dólares. As inscrições estão abertas no site do IIC e vão até o dia 1º de maio.
 Andrew McAfee, cientista do MIT e co-fundador da Iniciativa de Economia Digital, falou com EXAME sobre o desafio, expectativas para este ano e sobre como a tecnologia está impactando a sociedade e nossos ambientes de trabalho.
@@ -17,7 +23,21 @@ Quem pode responder a essa pergunta são as pessoas em São Paulo, Washington, C
 O que vocês esperam de empreendedores brasileiros e latino-americanos que irão se inscrever no IIC este ano? Qual é a sua mensagem para eles?
 Eu quero encorajar o maior número de pessoas a participar e espero aprender e ser surpreendido com as boas ideias vindo de empreendedores latino-americanos dispostos a trazer suas sugestões para nós. Uma das razões para eu participar do IIC é que consigo aprender e me deparar com uma série de grandes ideias, de todos os lugares do mundo.
     </string>
-
+    <string name="json">
+       {
+        "source":{
+            "id":\"google-news\",
+            "name":\"Google\"
+        },
+        "author":\"CBS News\",
+        "title":\"Boy regains consciousness after parents sign papers to donate his organs\",
+        "description":\"Trenton McKinley, 13, suffered severe brain trauma when a small utility trailer he was riding flipped over\",
+        "url":\"https://www.cbsnews.com/news/trenton-mckinley-regains-consciousness-after-parents-sign-papers-to-donate-his-organs-2018-05-06/\",
+        "urlToImage":\"https://cbsnews2.cbsistatic.com/hub/i/r/2018/05/06/310e93d1-cfdb-4847-99eb-52c04e86fdef/thumbnail/1200x630/adff538d7c0523fc55de773ffae3a205/31948888-568062493576705-2811210091284398080-n.jpg\",
+        "publishedAt":\"2018-05-06T20:27:00+00:00\"
+        }
+    </string>
     <string name="news_api_key">a074adebec1448c393de8aafc2d3fba1</string>
+    <string name="data">16/03/2018</string>
 
 </resources>

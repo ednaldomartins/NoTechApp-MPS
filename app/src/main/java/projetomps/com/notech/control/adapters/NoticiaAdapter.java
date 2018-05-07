@@ -16,25 +16,25 @@ import java.util.List;
 import projetomps.com.notech.R;
 import projetomps.com.notech.model.Noticia;
 
-public class NoticiaAdapter extends RecyclerView.Adapter<NoticiaAdapter.ViewHolder> {
+public class NoticiaAdapter extends RecyclerView.Adapter<NoticiaAdapter.MyViewHolder> {
 
     private List<Noticia> noticias;
     private Context context;
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+    public static class MyViewHolder extends RecyclerView.ViewHolder {
         public ImageView imagem;
         public TextView titulo;
         public TextView autor;
         public TextView data;
-        public TextView texto;
+        public TextView descricao;
 
-        public ViewHolder(View view) {
+        public MyViewHolder(final View view) {
             super(view);
-            imagem = view.findViewById(R.id.mainImagem);
-            titulo = view.findViewById(R.id.mainTitulo);
-            autor = view.findViewById(R.id.mainAutor);
-            data = view.findViewById(R.id.mainData);
-            texto = view.findViewById(R.id.mainTexto);
+            imagem = view.findViewById(R.id.imagem);
+            titulo = view.findViewById(R.id.titulo);
+            autor = view.findViewById(R.id.autor);
+            data = view.findViewById(R.id.data);
+            descricao = view.findViewById(R.id.descricao);
         }
     }
 
@@ -45,25 +45,27 @@ public class NoticiaAdapter extends RecyclerView.Adapter<NoticiaAdapter.ViewHold
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context)
-                .inflate(R.layout.list_noticia, parent, false);
+    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        final View view = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.noticia_card, parent, false);
 
-        NoticiaAdapter.ViewHolder viewHolder = new NoticiaAdapter.ViewHolder(view);
-
-        return viewHolder;
+        return new MyViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        NoticiaAdapter.ViewHolder viewHolder = holder;
+    public void onBindViewHolder(@NonNull final MyViewHolder holder, int position) {
+        NoticiaAdapter.MyViewHolder viewHolder = holder;
         Noticia noticia = noticias.get(position);
 
-        Picasso.get().load(noticia.getUrl()).into(viewHolder.imagem);
+        //Nao baixa?
+        //TODO:descobrir porque nao baixa a imagem
+        Picasso.get().load(noticia.getUrlImagem()).into(viewHolder.imagem);
+        //funciona mas nao é o que eu quero
+        //Picasso.get().load(R.drawable.mcafee_do_mit).into(viewHolder.imagem);
         viewHolder.titulo.setText(noticia.getTitulo());
         viewHolder.autor.setText(noticia.getAutor());
         viewHolder.data.setText(noticia.getData());
-        viewHolder.texto.setText(noticia.getTexto());
+        viewHolder.descricao.setText(noticia.getDescricao());
     }
 
     @Override

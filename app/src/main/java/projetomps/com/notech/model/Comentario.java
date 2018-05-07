@@ -1,8 +1,9 @@
-package projetomps.com.notech;
+package projetomps.com.notech.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Comentario {
+public class Comentario implements Serializable {
     private String comentario;
     private int numeroDeCurtidas;
     private ArrayList <Resposta> respostas;

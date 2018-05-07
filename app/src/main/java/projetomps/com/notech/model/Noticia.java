@@ -8,20 +8,32 @@ import org.json.JSONObject;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 //baseado no google news
 public class Noticia implements Serializable{
-    private String fonteId;
-    private String fonteNome;
-    private String autor;
-    private String titulo;
-    private String descricao;
-    private String url;
-    private String urlImagem;
-    private String data;
+    private String fonteId, fonteNome, autor, titulo, descricao, url, urlImagem, data;
+    private List<Comentario> comentarios;
 
     public Noticia() {
+        this.fonteId = "";
+        this.fonteNome = "";
+        this.autor = "";
+        this.titulo = "";
+        this.descricao = "";
+        this.url = "";
+        this.urlImagem = "";
+        this.data = "";
+        this.comentarios = null;
+    }
 
+    public Noticia(String autor, String titulo, String descricao, String url, String urlImagem, String data) {
+        this.autor = autor;
+        this.titulo = titulo;
+        this.descricao = descricao;
+        this.url = url;
+        this.urlImagem = urlImagem;
+        this.data = data;
     }
 
     public String getFonteId() {
@@ -88,6 +100,14 @@ public class Noticia implements Serializable{
         this.data = data;
     }
 
+    public List<Comentario> getComentarios() {
+        return comentarios;
+    }
+
+    public void setComentarios(List<Comentario> comentarios) {
+        this.comentarios = comentarios;
+    }
+
     /**
      * Parser de noticia no Json
      * @param artigo Json contendo artigo
@@ -99,11 +119,13 @@ public class Noticia implements Serializable{
 
         try {
             fonte = artigo.getJSONObject("source");
+
             noticia.fonteId = fonte.getString("id");
             noticia.fonteNome = fonte.getString("name");
+
             noticia.autor = artigo.getString("author");
-            noticia.titulo = artigo.getString("titulo");
-            noticia.descricao = artigo.getString("descricao");
+            noticia.titulo = artigo.getString("title");
+            noticia.descricao = artigo.getString("description");
             noticia.url = artigo.getString("url");
             noticia.urlImagem = artigo.getString("urlToImage");
             noticia.data = artigo.getString("publishedAt");
