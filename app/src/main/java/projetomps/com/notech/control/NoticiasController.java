@@ -1,4 +1,4 @@
-package projetomps.com.notech.view;
+package projetomps.com.notech.control;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -27,8 +27,10 @@ import java.util.List;
 import projetomps.com.notech.R;
 import projetomps.com.notech.control.adapters.NoticiaAdapter;
 import projetomps.com.notech.model.Noticia;
+import projetomps.com.notech.view.CategoriasActivity;
+import projetomps.com.notech.view.NoticiaActivity;
 
-public class MainActivity extends AppCompatActivity {
+public class NoticiasController extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private NoticiaAdapter adapter;
@@ -37,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.board);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -112,15 +114,15 @@ public class MainActivity extends AppCompatActivity {
 
         int opt = item.getItemId();
         if (opt == R.id.action_categorias) {
-            startActivity(new Intent(MainActivity.this, CategoriasActivity.class));
+            startActivity(new Intent(NoticiasController.this, CategoriasActivity.class));
         }
 
         if (opt == R.id.action_favoritos) {
-            //startActivity(new Intent(MainActivity.this, CategoriasActivity.class));
+            //startActivity(new Intent(NoticiasController.this, CategoriasActivity.class));
         }
 
         if (opt == R.id.action_marcador) {
-            //startActivity(new Intent(MainActivity.this, CategoriasActivity.class));
+            //startActivity(new Intent(NoticiasController.this, CategoriasActivity.class));
         }
 
         return super.onOptionsItemSelected(item);
@@ -134,7 +136,7 @@ public class MainActivity extends AppCompatActivity {
         bmp.compress(Bitmap.CompressFormat.JPEG, 100, stream);
         byte[] imagemMateria = stream.toByteArray();
 
-        Intent intent = new Intent(MainActivity.this, NoticiaActivity.class);
+        Intent intent = new Intent(NoticiasController.this, NoticiaActivity.class);
         intent.putExtra("imagem", imagemMateria );
         intent.putExtra("titulo", getResources().getString(R.string.titulo));
         intent.putExtra("texto", getResources().getString(R.string.noticia_mcafee));

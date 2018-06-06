@@ -1,117 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<ScrollView
-xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-tools:context="projetomps.com.notech.view.NoticiaActivity"
-android:layout_height="match_parent"
-android:layout_width="match_parent"
-android:fillViewport="true">
-
-<android.support.constraint.ConstraintLayout
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    >
+    android:fillViewport="true"
+    tools:context="projetomps.com.notech.view.NoticiaActivity">
 
-    <ImageView
-        android:id="@+id/noticiaImagemId"
-        android:layout_width="0dp"
-        android:layout_height="200dp"
-        android:layout_marginBottom="256dp"
-        android:scaleType="centerCrop"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@color/colorAccent" />
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/noticiaTituloId"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
-        android:text="titulo"
-        android:textColor="@android:color/black"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/noticiaImagemId" />
+        <ImageView
+            android:id="@+id/noticiaImagemId"
+            android:layout_width="0dp"
+            android:layout_height="200dp"
+            android:layout_marginBottom="256dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@color/colorAccent" />
 
-    <TextView
-        android:id="@+id/noticiaDataId"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:text="data"
-        android:textColor="@android:color/black"
-        app:layout_constraintBaseline_toBaselineOf="@+id/noticiaAutorId"
-        app:layout_constraintStart_toEndOf="@+id/noticiaAutorId" />
+        <TextView
+            android:id="@+id/noticiaTituloId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:text="titulo"
+            android:textColor="@android:color/black"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/noticiaImagemId" />
 
-    <TextView
-        android:id="@+id/noticiaTextoId"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="24dp"
-        android:layout_marginRight="24dp"
-        android:layout_marginTop="8dp"
-        android:text="texto"
-        android:textAlignment="inherit"
-        android:textColor="@android:color/black"
-        android:textSize="18sp"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/noticiaComentar" />
+        <TextView
+            android:id="@+id/noticiaDataId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="data"
+            android:textColor="@android:color/black"
+            app:layout_constraintBaseline_toBaselineOf="@+id/noticiaAutorId"
+            app:layout_constraintStart_toEndOf="@+id/noticiaAutorId" />
 
-    <TextView
-        android:id="@+id/noticiaAutorId"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="24dp"
-        android:layout_marginTop="8dp"
-        android:text="autor"
-        android:textColor="@android:color/black"
-        android:textSize="18sp"
-        android:textStyle="italic"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/noticiaTituloId" />
+        <TextView
+            android:id="@+id/noticiaTextoId"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="24dp"
+            android:layout_marginTop="8dp"
+            android:text="texto"
+            android:textAlignment="inherit"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/noticiaComentar" />
 
-    <ImageView
-        android:id="@+id/noticiaGostar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toStartOf="@+id/noticiaComentar"
-        app:layout_constraintTop_toBottomOf="@+id/noticiaAutorId"
-        app:srcCompat="@drawable/ic_action_gostar" />
+        <TextView
+            android:id="@+id/noticiaAutorId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="8dp"
+            android:text="autor"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:textStyle="italic"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/noticiaTituloId" />
 
-    <ImageView
-        android:id="@+id/noticiaComentar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/noticiaAutorId"
-        app:srcCompat="@drawable/ic_action_comentarios" />
+        <ImageView
+            android:id="@+id/noticiaGostar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/noticiaComentar"
+            app:layout_constraintTop_toBottomOf="@+id/noticiaAutorId"
+            app:srcCompat="@drawable/ic_action_gostar" />
 
-    <ImageView
-        android:id="@+id/noticiaReportar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintStart_toEndOf="@+id/noticiaComentar"
-        app:layout_constraintTop_toBottomOf="@+id/noticiaAutorId"
-        app:srcCompat="@drawable/ic_action_reportar" />
+        <ImageView
+            android:id="@+id/noticiaComentar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/noticiaAutorId"
+            app:srcCompat="@drawable/ic_action_comentarios" />
 
-</android.support.constraint.ConstraintLayout>
+        <ImageView
+            android:id="@+id/noticiaReportar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toEndOf="@+id/noticiaComentar"
+            app:layout_constraintTop_toBottomOf="@+id/noticiaAutorId"
+            app:srcCompat="@drawable/ic_action_reportar" />
+
+    </android.support.constraint.ConstraintLayout>
 
 </ScrollView>

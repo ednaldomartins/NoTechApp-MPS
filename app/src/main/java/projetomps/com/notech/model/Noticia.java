@@ -1,17 +1,17 @@
 package projetomps.com.notech.model;
 
-import android.media.Image;
+import android.os.Parcel;
+import android.os.Parcelable;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 //baseado no google news
-public class Noticia implements Serializable{
+public class Noticia implements Parcelable{
     private String fonteId, fonteNome, autor, titulo, descricao, url, urlImagem, data;
     private List<Comentario> comentarios;
 
@@ -35,6 +35,29 @@ public class Noticia implements Serializable{
         this.urlImagem = urlImagem;
         this.data = data;
     }
+
+    protected Noticia(Parcel in) {
+        fonteId = in.readString();
+        fonteNome = in.readString();
+        autor = in.readString();
+        titulo = in.readString();
+        descricao = in.readString();
+        url = in.readString();
+        urlImagem = in.readString();
+        data = in.readString();
+    }
+
+    public static final Creator<Noticia> CREATOR = new Creator<Noticia>() {
+        @Override
+        public Noticia createFromParcel(Parcel in) {
+            return new Noticia(in);
+        }
+
+        @Override
+        public Noticia[] newArray(int size) {
+            return new Noticia[size];
+        }
+    };
 
     public String getFonteId() {
         return fonteId;
@@ -168,5 +191,22 @@ public class Noticia implements Serializable{
      */
     public String getTexto() {
         return Crawler.getNoticiaByUrl(url);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(fonteId);
+        parcel.writeString(fonteNome);
+        parcel.writeString(autor);
+        parcel.writeString(titulo);
+        parcel.writeString(descricao);
+        parcel.writeString(url);
+        parcel.writeString(urlImagem);
+        parcel.writeString(data);
     }
 }
