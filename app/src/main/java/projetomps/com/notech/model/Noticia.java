@@ -11,9 +11,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 //baseado no google news
-public class Noticia implements Parcelable{
+public class Noticia implements Parcelable {
+
     private String fonteId, fonteNome, autor, titulo, descricao, url, urlImagem, data;
-    private List<Comentario> comentarios;
+    private List<Integer> comentarios;
 
     public Noticia() {
         this.fonteId = "";
@@ -123,11 +124,11 @@ public class Noticia implements Parcelable{
         this.data = data;
     }
 
-    public List<Comentario> getComentarios() {
+    public List<Integer> getComentarios() {
         return comentarios;
     }
 
-    public void setComentarios(List<Comentario> comentarios) {
+    public void setComentarios(List<Integer> comentarios) {
         this.comentarios = comentarios;
     }
 

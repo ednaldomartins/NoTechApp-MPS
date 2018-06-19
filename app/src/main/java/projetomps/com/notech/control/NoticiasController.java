@@ -1,5 +1,6 @@
 package projetomps.com.notech.control;
 
+import android.support.v4.app.FragmentTransaction;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -27,19 +28,32 @@ import java.util.List;
 import projetomps.com.notech.R;
 import projetomps.com.notech.control.adapters.NoticiaAdapter;
 import projetomps.com.notech.model.Noticia;
+import projetomps.com.notech.view.BoardView;
 import projetomps.com.notech.view.CategoriasActivity;
 import projetomps.com.notech.view.NoticiaActivity;
 
 public class NoticiasController extends AppCompatActivity {
 
-    private RecyclerView recyclerView;
+    //private RecyclerView recyclerView;
+    private BoardView board;
     private NoticiaAdapter adapter;
     private List<Noticia> listaNoticia;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+/*
+        if(savedInstanceState == null) {
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.rvNoticias, new BoardView(), "board").commit();
+
+        }*/
         setContentView(R.layout.board);
+
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.rvNoticias, new BoardView());
+        ft.commit();
+        /*
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -49,7 +63,7 @@ public class NoticiasController extends AppCompatActivity {
         recyclerView = findViewById(R.id.rvNoticias);
 
         listaNoticia = new ArrayList<>();
-        adapter = new NoticiaAdapter(listaNoticia, this);
+        adapter = new NoticiaAdapter(listaNoticia, this, recyclerView);
 
         recyclerView.setLayoutManager(new LinearLayoutManager((this)));
         recyclerView.setAdapter(adapter);
@@ -58,6 +72,9 @@ public class NoticiasController extends AppCompatActivity {
 
         //testando localmente
         preparaNoticias();
+
+        */
+
 
     }
 
@@ -145,4 +162,5 @@ public class NoticiasController extends AppCompatActivity {
         startActivity(intent);
 
     }
+
 }

@@ -1,20 +1,26 @@
 package projetomps.com.notech.model;
 
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.PrimaryKey;
+import android.support.annotation.NonNull;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 
+@Entity(tableName = "usuario_tabela")
 public class Usuario implements Serializable {
-    private String nome;
+    @PrimaryKey private String nome;
+    @NonNull
     private String email;
-    private ArrayList<Noticia> noticiasFavorita;
-    private ArrayList<Noticia> noticiasMarcada;
+    private ArrayList<Integer> noticiasFavoritas;
+    private ArrayList<Integer> noticiasMarcadas;
     private int horarioLembrete;
 
-    public Usuario(String nome, String email, ArrayList<Noticia> noticiasFavorita, ArrayList<Noticia> noticiasMarcada, int horarioLembrete) {
+    public Usuario(String nome, String email, ArrayList<Integer> noticiasFavorita, ArrayList<Integer> noticiasMarcada, int horarioLembrete) {
         this.nome = nome;
         this.email = email;
-        this.noticiasFavorita = noticiasFavorita;
-        this.noticiasMarcada = noticiasMarcada;
+        this.noticiasFavoritas = noticiasFavorita;
+        this.noticiasMarcadas = noticiasMarcada;
         this.horarioLembrete = horarioLembrete;
     }
 
@@ -28,12 +34,12 @@ public class Usuario implements Serializable {
         return email;
     }
 
-    public ArrayList<Noticia> getNoticiasFavorita() {
-        return noticiasFavorita;
+    public ArrayList<Integer> getNoticiasFavoritas() {
+        return noticiasFavoritas;
     }
 
-    public ArrayList<Noticia> getNoticiasMarcada() {
-        return noticiasMarcada;
+    public ArrayList<Integer> getNoticiasMarcadas() {
+        return noticiasMarcadas;
     }
 
     public int getHorarioLembrete() {
@@ -51,12 +57,12 @@ public class Usuario implements Serializable {
         this.email = email;
     }
 
-    public void setNoticiasFavorita(ArrayList<Noticia> noticiasFavorita) {
-        this.noticiasFavorita = noticiasFavorita;
+    public void setNoticiasFavoritas(ArrayList<Integer> noticiasFavoritas) {
+        this.noticiasFavoritas = noticiasFavoritas;
     }
 
-    public void setNoticiasMarcada(ArrayList<Noticia> noticiasMarcada) {
-        this.noticiasMarcada = noticiasMarcada;
+    public void setNoticiasMarcadas(ArrayList<Integer> noticiasMarcadas) {
+        this.noticiasMarcadas = noticiasMarcadas;
     }
 
     public void setHorarioLembrete(int horarioLembrete) {

@@ -2,6 +2,7 @@ package projetomps.com.notech.control.adapters;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.v7.util.AsyncListUtil;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,7 +19,7 @@ import projetomps.com.notech.model.Noticia;
 
 public class NoticiaAdapter extends RecyclerView.Adapter<NoticiaAdapter.MyViewHolder> {
 
-    private List<Noticia> noticias;
+    private AsyncListUtil<Noticia> noticias;
     private Context context;
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
@@ -38,8 +39,8 @@ public class NoticiaAdapter extends RecyclerView.Adapter<NoticiaAdapter.MyViewHo
         }
     }
 
-    public NoticiaAdapter(List<Noticia> noticias, Context context) {
-        this.noticias = noticias;
+    public NoticiaAdapter(final List<Noticia> noticias, final Context context, final RecyclerView rv) {
+        this.noticias = new NoticiaAsyncAdapter(noticias, rv);
         this.context = context;
     }
 
@@ -55,7 +56,7 @@ public class NoticiaAdapter extends RecyclerView.Adapter<NoticiaAdapter.MyViewHo
     @Override
     public void onBindViewHolder(@NonNull final MyViewHolder holder, int position) {
         NoticiaAdapter.MyViewHolder viewHolder = holder;
-        Noticia noticia = noticias.get(position);
+        Noticia noticia = noticias.getItem(position);
 
         //Nao baixa?
         //TODO:descobrir porque nao baixa a imagem
@@ -70,6 +71,11 @@ public class NoticiaAdapter extends RecyclerView.Adapter<NoticiaAdapter.MyViewHo
 
     @Override
     public int getItemCount() {
-        return noticias.size();
+        return noticias.getItemCount();
     }
+
+    public void refresh(){
+        noticias.refresh();
+    }
+
 }
