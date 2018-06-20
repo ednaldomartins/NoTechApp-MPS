@@ -2,25 +2,26 @@ package projetomps.com.notech.model;
 
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
+import android.arch.persistence.room.TypeConverters;
 import android.support.annotation.NonNull;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 
 @Entity(tableName = "usuario_tabela")
 public class Usuario implements Serializable {
-    @PrimaryKey private String nome;
-    @NonNull
+    @PrimaryKey @NonNull private String nome;
     private String email;
-    private ArrayList<Integer> noticiasFavoritas;
-    private ArrayList<Integer> noticiasMarcadas;
-    private int horarioLembrete;
+    @TypeConverters(Converters.class) private ArrayList<Integer> noticiasFavoritas;
+    @TypeConverters(Converters.class) private ArrayList<Integer> noticiasMarcadas;
+    @TypeConverters(Converters.class) private Date horarioLembrete;
 
-    public Usuario(String nome, String email, ArrayList<Integer> noticiasFavorita, ArrayList<Integer> noticiasMarcada, int horarioLembrete) {
+    public Usuario(String nome, String email, ArrayList<Integer> noticiasFavoritas, ArrayList<Integer> noticiasMarcadas, Date horarioLembrete) {
         this.nome = nome;
         this.email = email;
-        this.noticiasFavoritas = noticiasFavorita;
-        this.noticiasMarcadas = noticiasMarcada;
+        this.noticiasFavoritas = noticiasFavoritas;
+        this.noticiasMarcadas = noticiasMarcadas;
         this.horarioLembrete = horarioLembrete;
     }
 
@@ -42,7 +43,7 @@ public class Usuario implements Serializable {
         return noticiasMarcadas;
     }
 
-    public int getHorarioLembrete() {
+    public Date getHorarioLembrete() {
         return horarioLembrete;
     }
 
@@ -65,7 +66,7 @@ public class Usuario implements Serializable {
         this.noticiasMarcadas = noticiasMarcadas;
     }
 
-    public void setHorarioLembrete(int horarioLembrete) {
+    public void setHorarioLembrete(Date horarioLembrete) {
         this.horarioLembrete = horarioLembrete;
     }
 }

@@ -10,6 +10,7 @@ import java.net.URLEncoder;
 
 import projetomps.com.notech.R;
 
+//Façade
 public class NoticiaClient {
     private static final String API_BASE_URL = "https://newsapi.org/v2/";
     private static String API_KEY;

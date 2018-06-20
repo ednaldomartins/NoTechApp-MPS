@@ -1,7 +1,10 @@
 package projetomps.com.notech.model;
 
+import android.arch.persistence.room.Entity;
+
 import java.io.Serializable;
 
+@Entity(tableName = "denuncia_table")
 public class Denuncia implements Serializable {
     private int quantidadeDeDenuncias;
     private String texto;
