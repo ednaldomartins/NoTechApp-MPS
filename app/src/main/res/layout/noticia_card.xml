@@ -72,7 +72,7 @@
                 android:layout_marginLeft="8dp"
                 android:text="@string/data" />
 
-            <!-- Se a main tem um ActionBar com essas funções
+            <!-- Se a busca tem um ActionBar com essas funções
             qual o motivo desses botoes? -->
             <ImageView
                 android:id="@+id/botaoFavorito"

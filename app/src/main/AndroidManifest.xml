@@ -16,6 +16,21 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        
+        <activity
+            android:name=".BuscaActivity"
+            android:label="@string/searchLabel"
+            android:theme="@style/Theme.MyCompatTheme">
+
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/busca" />
+        </activity>
+
         <activity android:name=".view.CategoriasActivity" />
         <activity android:name=".view.NoticiaActivity"></activity>
     </application>
