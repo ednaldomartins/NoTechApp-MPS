@@ -35,6 +35,9 @@
 
         <activity android:name=".view.CategoriasActivity" />
         <activity android:name=".view.NoticiaActivity" />
+        <activity
+            android:name=".control.NoticiasController"
+            android:theme="@style/Theme.MyCompatTheme" />
 
     </application>
 

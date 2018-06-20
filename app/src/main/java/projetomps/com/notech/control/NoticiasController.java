@@ -34,7 +34,7 @@ import projetomps.com.notech.view.NoticiaActivity;
 
 public class NoticiasController extends AppCompatActivity {
 
-    //private RecyclerView recyclerView;
+    private RecyclerView recyclerView;
     private BoardView board;
     private NoticiaAdapter adapter;
     private List<Noticia> listaNoticia;
@@ -48,17 +48,11 @@ public class NoticiasController extends AppCompatActivity {
                     .replace(R.id.rvNoticias, new BoardView(), "board").commit();
 
         }*/
-        setContentView(R.layout.board);
+        setContentView(R.layout.board_view);
 
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.rvNoticias, new BoardView());
         ft.commit();
-        /*
-
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        initCollapsingBar();
 
         recyclerView = findViewById(R.id.rvNoticias);
 
@@ -68,12 +62,8 @@ public class NoticiasController extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager((this)));
         recyclerView.setAdapter(adapter);
 
-        Picasso.get().load(R.drawable.mcafee_do_mit).into((ImageView) findViewById(R.id.backdrop));
-
         //testando localmente
         preparaNoticias();
-
-        */
 
 
     }
@@ -121,30 +111,9 @@ public class NoticiasController extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main, menu);
+        getMenuInflater().inflate(R.menu.menu, menu);
         return true;
     }
-
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-
-        int opt = item.getItemId();
-        if (opt == R.id.action_categorias) {
-            startActivity(new Intent(NoticiasController.this, CategoriasActivity.class));
-        }
-
-        if (opt == R.id.action_favoritos) {
-            //startActivity(new Intent(NoticiasController.this, CategoriasActivity.class));
-        }
-
-        if (opt == R.id.action_marcador) {
-            //startActivity(new Intent(NoticiasController.this, CategoriasActivity.class));
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
 
     public void abrirNoticia (View view) {
 
