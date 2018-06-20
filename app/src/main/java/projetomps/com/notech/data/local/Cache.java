@@ -1,4 +1,4 @@
-package projetomps.com.notech.control;
+package projetomps.com.notech.data.local;
 
 import android.arch.persistence.room.Database;
 import android.arch.persistence.room.Room;
@@ -12,9 +12,9 @@ import projetomps.com.notech.model.Usuario;
 @Database(entities = {Comentario.class, Usuario.class}, version = 1)
 public abstract class Cache extends RoomDatabase {
     private static final String DB_NAME = "cache.db";
-    private static volatile Cache instancia;
+    private static volatile Cache instancia= null;
 
-    static synchronized Cache getInstancia(Context context){
+    public static synchronized Cache getInstancia(Context context){
         if(instancia == null)
             instancia = cria(context);
         return instancia;

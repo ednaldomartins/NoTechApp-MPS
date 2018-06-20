@@ -2,13 +2,9 @@ package projetomps.com.notech.model;
 
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
-import android.arch.persistence.room.ForeignKey;
 import android.arch.persistence.room.PrimaryKey;
-import static android.arch.persistence.room.ForeignKey.CASCADE;
-import android.support.v4.widget.CircularProgressDrawable;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 
 @Entity(tableName = "comentario_table")
 public class Comentario implements Serializable {
@@ -20,8 +16,8 @@ public class Comentario implements Serializable {
     private int paiId;
     private int respostaId;
 
-    public Comentario(int id, String comentario, String usuarioNome, int numeroDeCurtidas, int paiId, int respostaId) {
-        this.comentarioId = id;
+    public Comentario(int comentarioId, String comentario, String usuarioNome, int numeroDeCurtidas, int paiId, int respostaId) {
+        this.comentarioId = comentarioId;
         this.usuarioNome = usuarioNome;
         this.comentario = comentario;
         this.numeroDeCurtidas = numeroDeCurtidas;
