@@ -10,15 +10,15 @@ import java.io.Serializable;
 public class Comentario implements Serializable {
     @PrimaryKey @ColumnInfo(name = "id") private int comentarioId;
     private String comentario;
-    private String usuarioNome;
+    private int usuarioId;
     private int numeroDeCurtidas;
 
     private int paiId;
     private int respostaId;
 
-    public Comentario(int comentarioId, String comentario, String usuarioNome, int numeroDeCurtidas, int paiId, int respostaId) {
+    public Comentario(int comentarioId, String comentario, int usuarioId, int numeroDeCurtidas, int paiId, int respostaId) {
         this.comentarioId = comentarioId;
-        this.usuarioNome = usuarioNome;
+        this.usuarioId = usuarioId;
         this.comentario = comentario;
         this.numeroDeCurtidas = numeroDeCurtidas;
         this.paiId = paiId;
@@ -43,8 +43,8 @@ public class Comentario implements Serializable {
         return comentarioId;
     }
 
-    public String getUsuarioNome() {
-        return usuarioNome;
+    public int getUsuarioNome() {
+        return usuarioId;
     }
 
     public int getPaiId() {
@@ -64,8 +64,8 @@ public class Comentario implements Serializable {
         this.comentario = comentario;
     }
 
-    public void setUsuarioNome(String usuarioNome) {
-        this.usuarioNome = usuarioNome;
+    public void setUsuarioNome(int usuarioId) {
+        this.usuarioId = usuarioId;
     }
 
     public void setNumeroDeCurtidas(int numeroDeCurtidas) {

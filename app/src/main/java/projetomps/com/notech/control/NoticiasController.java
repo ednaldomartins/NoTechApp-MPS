@@ -47,7 +47,7 @@ public class NoticiasController extends AppCompatActivity {
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.rvNoticias, new BoardView(), "board").commit();
 
-        }*/
+        }
         setContentView(R.layout.board_view);
 
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
@@ -64,7 +64,7 @@ public class NoticiasController extends AppCompatActivity {
 
         //testando localmente
         preparaNoticias();
-
+*/
 
     }
 
