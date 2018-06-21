@@ -18,14 +18,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        
-        <activity
-            android:name=".BuscaActivity"
-            android:label="@string/searchLabel"
-            android:theme="@style/Theme.MyCompatTheme" />
-
-        <activity android:name=".view.CategoriasActivity" />
-        <activity android:name=".view.NoticiaActivity" />
         <activity
             android:name=".control.NoticiasController"
             android:theme="@style/Theme.MyCompatTheme">
