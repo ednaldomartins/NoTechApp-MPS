@@ -18,7 +18,7 @@ public class SplashScreenController extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
 
-        Cache cache = Room.databaseBuilder(this, Cache.class, "cach.db").allowMainThreadQueries().build();
+        Cache cache = Room.databaseBuilder(this, Cache.class, "cache.db").allowMainThreadQueries().build();
 
         Usuario usuario = cache.getUsuarioDao().getUsuario();
 
