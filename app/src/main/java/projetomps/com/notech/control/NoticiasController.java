@@ -3,6 +3,7 @@ package projetomps.com.notech.control;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.res.Configuration;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -33,9 +34,10 @@ public class NoticiasController extends AppCompatActivity implements RecyclerVie
 
         if (savedInstanceState == null) {
             recyclerViewFragment = new RecyclerViewFragment();
-            getSupportFragmentManager().beginTransaction()
-            .replace(R.id.listaNoticias, recyclerViewFragment)
-            .commit();
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            transaction.replace(R.id.listaNoticias, recyclerViewFragment);
+
+            transaction.commit();
         }
 
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -122,8 +124,10 @@ public class NoticiasController extends AppCompatActivity implements RecyclerVie
         Bundle arg = new Bundle();
         arg.putParcelable("noticia", noticia);
         noticiaDetalhesFragment.setArguments(arg);
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.viewNoticiaDetalhe, noticiaDetalhesFragment)
-                .commit();
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.listaNoticias, noticiaDetalhesFragment);
+        transaction.addToBackStack(null);
+
+        transaction.commit();
     }
 }

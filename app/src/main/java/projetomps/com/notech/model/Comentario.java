@@ -9,7 +9,7 @@ import java.io.Serializable;
 @Entity(tableName = "comentario_table")
 public class Comentario implements Serializable {
     //MEMENTO - variavel
-    private ComentarioCareTaker careTaker;
+    //private ComentarioCareTaker careTaker;
 
     @PrimaryKey @ColumnInfo(name = "id") private int comentarioId;
     private String comentario;
@@ -20,7 +20,7 @@ public class Comentario implements Serializable {
 
     public Comentario(int comentarioId, String comentario, int usuarioId, int numeroDeCurtidas, int paiId, int respostaId) {
         //MEMENTO - inicialização
-        this.careTaker = new ComentarioCareTaker();
+        //this.careTaker = new ComentarioCareTaker();
 
         this.comentarioId = comentarioId;
         this.usuarioId = usuarioId;
@@ -35,7 +35,7 @@ public class Comentario implements Serializable {
     //MEMENTO - metodo para editar comentario atual
     public void escreverComentario (String novoComentario) {
         //não estamos trabalhando com editor de texto, entao vamos literalmente pegar um novo comentario
-        careTaker.adcionarMemento(new ComentarioMemento(this.comentario));
+        //careTaker.adcionarMemento(new ComentarioMemento(this.comentario));
         //agora o novo comentario do usuario passara a ser o comentario padrao do usuario
         comentario = novoComentario;
     }
@@ -43,7 +43,7 @@ public class Comentario implements Serializable {
     //MEMENTO - metodo para retornar a versão anterior do comentario
     public void desfazerComentario () {
         //comentario atual recebe um memento como retorno, esse memento é o ultimo comentario
-        comentario = careTaker.getUltimoComentarioSalvo().comentarioSalvo();
+        //comentario = careTaker.getUltimoComentarioSalvo().comentarioSalvo();
     }
 
 
@@ -51,6 +51,10 @@ public class Comentario implements Serializable {
     //GETs
     public int getId() {
         return comentarioId;
+    }
+
+    public int getUsuarioId() {
+        return usuarioId;
     }
 
     public String getComentario() {
@@ -81,6 +85,10 @@ public class Comentario implements Serializable {
     //SETs
     public void setComentarioId(int comentarioId) {
         this.comentarioId = comentarioId;
+    }
+
+    public void setUsuarioId(int usuarioId) {
+        this.usuarioId = usuarioId;
     }
 
     public void setComentario(String comentario) {

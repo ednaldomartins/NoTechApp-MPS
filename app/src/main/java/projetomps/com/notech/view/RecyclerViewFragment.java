@@ -1,5 +1,6 @@
 package projetomps.com.notech.view;
 
+import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -23,7 +24,7 @@ import projetomps.com.notech.util.noticias.NoticiaJobsBuilder;
 
 public class RecyclerViewFragment extends Fragment{
 
-    public interface DataPassListener{
+    public interface DataPassListener {
         void passData(Noticia noticia);
     }
 
@@ -77,19 +78,28 @@ public class RecyclerViewFragment extends Fragment{
 
     }
 
+    @Override
+    public void onAttach(Context context){
+        super.onAttach(context);
+
+        callack = (DataPassListener) context;
+    }
+
     private void initNoticias() {
         //TODO: retornar noticias no news
         //new NoticiaClient(getResources().getString(R.string.news_api_key)).getNoticias("QUERY", null);
 
         noticias = new ArrayList<>();
         NoticiaBuilder builder = new NoticiaBuilder(new NoticiaJobsBuilder());
+        JSONObject json = null;
         try {
-            JSONObject json = new JSONObject(getResources().getString(R.string.json));
+            json = new JSONObject(getResources().getString(R.string.json));
+
+            builder.buildFromJson(json);
         } catch (JSONException e) {
             Log.d(TAG, e.getMessage());
         }
 
-        builder.build();
         //mock
         noticias.add(builder.getNoticia());
         noticias.add(builder.getNoticia());
