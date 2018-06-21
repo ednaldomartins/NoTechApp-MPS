@@ -3,6 +3,7 @@ package projetomps.com.notech.control.adapters;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -52,11 +53,6 @@ public class NoticiaAdapter extends RecyclerView.Adapter<NoticiaAdapter.MyViewHo
         Log.d("NoticiaAdapter", "Element "+position+" set.");
         // TODO: usar client
 
-        NoticiaBuilder builder = new NoticiaBuilder(new NoticiaJobsBuilder());
-        builder.build();
-
-        noticias.add(builder.getNoticia());
-
         holder.bind(noticias.get(position), listener);
     }
 
@@ -66,6 +62,7 @@ public class NoticiaAdapter extends RecyclerView.Adapter<NoticiaAdapter.MyViewHo
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
+        public CardView cv;
         public ImageView imagem;
         public TextView titulo;
         public TextView autor;
@@ -74,6 +71,7 @@ public class NoticiaAdapter extends RecyclerView.Adapter<NoticiaAdapter.MyViewHo
 
         public MyViewHolder(final View view) {
             super(view);
+            cv = (CardView)view.findViewById(R.id.cardView);
             imagem = view.findViewById(R.id.imagem);
             titulo = view.findViewById(R.id.titulo);
             autor = view.findViewById(R.id.autor);
@@ -92,10 +90,9 @@ public class NoticiaAdapter extends RecyclerView.Adapter<NoticiaAdapter.MyViewHo
             data.setText(noticia.getData());
             descricao.setText(noticia.getDescricao());
 
-            itemView.setOnClickListener(new View.OnClickListener(){
+            cv.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Log.d("NoticiaAdapter", "Noticia "+getAdapterPosition()+" clicada.");
                     listener.onItemClick(noticia);
                 }
             });
