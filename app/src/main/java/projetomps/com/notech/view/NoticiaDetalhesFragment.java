@@ -42,7 +42,7 @@ public class NoticiaDetalhesFragment extends Fragment {
         Picasso.get().load(R.drawable.mcafee_do_mit).into((ImageView) view.findViewById(R.id.noticiaImagem));
         ((TextView) view.findViewById(R.id.noticiaTitulo)).setText(noticia.getTitulo());
         ((TextView) view.findViewById(R.id.data)).setText(noticia.getData());
-        ((TextView) view.findViewById(R.id.descricao)).setText(noticia.getTexto());
+        ((TextView) view.findViewById(R.id.descricao)).setText(R.string.noticia_mcafee);
         //TODO: baixar do api news
         //((TextView) view.findViewById(R.id.descricao)).setText(noticia.getTexto());
         ((TextView) view.findViewById(R.id.autor)).setText(noticia.getAutor());
@@ -63,7 +63,7 @@ public class NoticiaDetalhesFragment extends Fragment {
             Picasso.get().load(noticia.getUrlImagem()).into((ImageView) view.findViewById(R.id.imagem));
             ((TextView) view.findViewById(R.id.titulo)).setText(noticia.getTitulo());
             ((TextView) view.findViewById(R.id.data)).setText(noticia.getData());
-            ((TextView) view.findViewById(R.id.noticiaTextoId)).setText(noticia.getTexto());
+            ((TextView) view.findViewById(R.id.descricao)).setText(noticia.getTexto());
             ((TextView) view.findViewById(R.id.autor)).setText(noticia.getAutor());
         }
     }

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
-    tools:context=".view.SplashScreenActivity">
+    tools:context=".control.SplashScreenController">
 
     <TextView
         android:id="@+id/splashNomeApp1"
@@ -17,8 +17,8 @@
         android:textColor="@android:color/holo_red_light"
         android:textSize="72sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="155dp" />
+        app:layout_constraintEnd_toStartOf="@+id/splashNomeApp2"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/splashNomeApp2"

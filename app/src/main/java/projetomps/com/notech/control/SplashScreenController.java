@@ -1,4 +1,4 @@
-package projetomps.com.notech.view;
+package projetomps.com.notech.control;
 
 import android.content.Intent;
 import android.os.Handler;
@@ -6,9 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import projetomps.com.notech.R;
-import projetomps.com.notech.control.NoticiasController;
 
-public class SplashScreenActivity extends AppCompatActivity {
+public class SplashScreenController extends AppCompatActivity {
 
     private final int timer = 2000;
     @Override
@@ -21,7 +20,7 @@ public class SplashScreenActivity extends AppCompatActivity {
         handle.postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(projetomps.com.notech.view.SplashScreenActivity.this, NoticiasController.class));
+                startActivity(new Intent(SplashScreenController.this, NoticiasController.class));
                 finish();
             }
 

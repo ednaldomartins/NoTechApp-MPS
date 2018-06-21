@@ -1,9 +1,4 @@
 <resources>
-    <string name="action_settings">Settings</string>
-    <string name="action_add_favourite">Add to Favourites</string>
-    <string name="action_play_next">Play Next</string>
-    <string name="backdrop_title">No Tech</string>
-    <string name="backdrop_subtitle">Projeto de MPS</string>
     <string name="app_name">ifake</string>
     <string name="titulo">McAfee, do MIT: conversa sobre tecnologia deve ser mais positiva</string>
     <string name="autor">Thiago Lavado</string>
@@ -39,7 +34,7 @@ Eu quero encorajar o maior número de pessoas a participar e espero aprender e s
     </string>
     <string name="news_api_key">a074adebec1448c393de8aafc2d3fba1</string>
     <string name="data">16/03/2018</string>
-    <string name="searchLabel">Busca noticia</string>
+    <string name="searchLabel">Buscar noticia</string>
     <string-array name="list_view">
         <item>Categorias</item>
     </string-array>
