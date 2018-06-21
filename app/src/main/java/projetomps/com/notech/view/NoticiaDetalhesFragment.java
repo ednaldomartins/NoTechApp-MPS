@@ -60,10 +60,14 @@ public class NoticiaDetalhesFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
 
         if(savedInstanceState != null){
-            Picasso.get().load(noticia.getUrlImagem()).into((ImageView) view.findViewById(R.id.imagem));
-            ((TextView) view.findViewById(R.id.titulo)).setText(noticia.getTitulo());
+            // download
+            //Picasso.get().load(noticia.getUrlImagem()).into((ImageView) view.findViewById(R.id.imagem));
+            Picasso.get().load(R.drawable.mcafee_do_mit).into((ImageView) view.findViewById(R.id.noticiaImagem));
+            ((TextView) view.findViewById(R.id.noticiaTitulo)).setText(noticia.getTitulo());
             ((TextView) view.findViewById(R.id.data)).setText(noticia.getData());
-            ((TextView) view.findViewById(R.id.descricao)).setText(noticia.getTexto());
+            ((TextView) view.findViewById(R.id.descricao)).setText(R.string.noticia_mcafee);
+            // download
+            //((TextView) view.findViewById(R.id.descricao)).setText(noticia.getTexto());
             ((TextView) view.findViewById(R.id.autor)).setText(noticia.getAutor());
         }
     }
