@@ -8,29 +8,30 @@ import java.io.Serializable;
 
 @Entity(tableName = "comentario_table")
 public class Comentario implements Serializable {
-    //MEMENTO - variavel
-    private ComentarioCareTaker careTaker;
+
 
     @PrimaryKey @ColumnInfo(name = "id") private int comentarioId;
     private String comentario;
-    private int usuarioId;
+    private String usuarioNome;
     private int numeroDeCurtidas;
     private int paiId;
     private int respostaId;
+    //MEMENTO - variavel
+    //protected ComentarioCareTaker careTaker;
 
-    public Comentario(int comentarioId, String comentario, int usuarioId, int numeroDeCurtidas, int paiId, int respostaId) {
+    public Comentario(int comentarioId, String comentario, String usuarioNome, int numeroDeCurtidas, int paiId, int respostaId) {
         //MEMENTO - inicialização
-        this.careTaker = new ComentarioCareTaker();
+        //this.careTaker = new ComentarioCareTaker();
 
         this.comentarioId = comentarioId;
-        this.usuarioId = usuarioId;
+        this.usuarioNome = usuarioNome;
         this.comentario = comentario;
         this.numeroDeCurtidas = numeroDeCurtidas;
         this.paiId = paiId;
         this.respostaId = respostaId;
     }
 
-
+/*
 
     //MEMENTO - metodo para editar comentario atual
     public void escreverComentario (String novoComentario) {
@@ -46,8 +47,8 @@ public class Comentario implements Serializable {
         comentario = careTaker.getUltimoComentarioSalvo().comentarioSalvo();
     }
 
+*/
 
-    
     //GETs
     public int getId() {
         return comentarioId;
@@ -65,8 +66,8 @@ public class Comentario implements Serializable {
         return comentarioId;
     }
 
-    public int getUsuarioNome() {
-        return usuarioId;
+    public String getUsuarioNome() {
+        return usuarioNome;
     }
 
     public int getPaiId() {
@@ -87,8 +88,8 @@ public class Comentario implements Serializable {
         this.comentario = comentario;
     }
 
-    public void setUsuarioNome(int usuarioId) {
-        this.usuarioId = usuarioId;
+    public void setUsuarioNome(String usuarioNome) {
+        this.usuarioNome = usuarioNome;
     }
 
     public void setNumeroDeCurtidas(int numeroDeCurtidas) {
