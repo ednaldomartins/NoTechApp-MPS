@@ -53,22 +53,24 @@ public class NoticiaDetalhesFragment extends Fragment {
     @Override
     public void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
+        outState.putParcelable("noticia", noticia);
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        if(savedInstanceState != null){
-            // download
-            //Picasso.get().load(noticia.getUrlImagem()).into((ImageView) view.findViewById(R.id.imagem));
+        if(savedInstanceState != null) {
+            Noticia estado = (Noticia) savedInstanceState.get("noticia");
+            // nao baixa
+            //Picasso.get().load(estado.getUrlImagem()).into((ImageView) view.findViewById(R.id.noticiaImagem));
             Picasso.get().load(R.drawable.mcafee_do_mit).into((ImageView) view.findViewById(R.id.noticiaImagem));
-            ((TextView) view.findViewById(R.id.noticiaTitulo)).setText(noticia.getTitulo());
-            ((TextView) view.findViewById(R.id.data)).setText(noticia.getData());
+            ((TextView) view.findViewById(R.id.noticiaTitulo)).setText(estado.getTitulo());
+            ((TextView) view.findViewById(R.id.data)).setText(estado.getData());
             ((TextView) view.findViewById(R.id.descricao)).setText(R.string.noticia_mcafee);
             // download
             //((TextView) view.findViewById(R.id.descricao)).setText(noticia.getTexto());
-            ((TextView) view.findViewById(R.id.autor)).setText(noticia.getAutor());
+            ((TextView) view.findViewById(R.id.autor)).setText(estado.getAutor());
         }
     }
 }
