@@ -1,11 +1,14 @@
 package projetomps.com.notech.control;
 
+import android.arch.persistence.room.Room;
 import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import projetomps.com.notech.R;
+import projetomps.com.notech.data.local.Cache;
+import projetomps.com.notech.model.Usuario;
 
 public class SplashScreenController extends AppCompatActivity {
 
@@ -15,16 +18,20 @@ public class SplashScreenController extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
 
-        Handler handle = new Handler();
+        Cache cache = Room.databaseBuilder(this, Cache.class, "cach.db").allowMainThreadQueries().build();
 
-        handle.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                startActivity(new Intent(SplashScreenController.this, NoticiasController.class));
-                finish();
-            }
+        Usuario usuario = cache.getUsuarioDao().getUsuario();
 
-        }, timer);
+        if(usuario != null) {
+            Handler handle = new Handler();
+            handle.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    startActivity(new Intent(SplashScreenController.this, NoticiasController.class));
+                    finish();
+                }
 
+            }, timer);
+        }
     }
 }

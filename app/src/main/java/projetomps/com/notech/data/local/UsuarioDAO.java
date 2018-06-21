@@ -24,4 +24,6 @@ public interface UsuarioDAO {
     @Query("SELECT * FROM usuario_tabela WHERE nome LIKE :nome")
     Usuario getUsuario(String nome);
 
+    @Query("SELECT * FROM usuario_tabela")
+    Usuario getUsuario();
 }
