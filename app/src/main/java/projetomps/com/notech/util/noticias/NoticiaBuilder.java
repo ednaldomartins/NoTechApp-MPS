@@ -8,6 +8,10 @@ import projetomps.com.notech.model.Noticia;
 public class NoticiaBuilder {
     protected NoticiaBuilderAbstract montador;
 
+    public NoticiaBuilder(NoticiaBuilderAbstract montador) {
+        this.montador = montador;
+    }
+
     public void build(){
         montador.buildFonteId();
         montador.buildFonteNome();

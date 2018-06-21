@@ -15,7 +15,9 @@ import com.squareup.picasso.Picasso;
 import projetomps.com.notech.R;
 import projetomps.com.notech.model.Noticia;
 
-public class NoticiaDetalhesView extends Fragment {
+public class NoticiaDetalhesFragment extends Fragment {
+
+    private static final String TAG = "NoticiaDetalesFragment";
     private View view;
     private Noticia noticia;
     private TextView titulo, data, texto, autor;
@@ -31,7 +33,7 @@ public class NoticiaDetalhesView extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         //infla a view
-        view = inflater.inflate(R.layout.board, container, false);
+        view = inflater.inflate(R.layout.noticia_detalhe_frag, container, false);
 
         //verificar se passar a imagem seria melhor
         Picasso.get().load(noticia.getUrlImagem()).into((ImageView) view.findViewById(R.id.imagem));

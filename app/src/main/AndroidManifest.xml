@@ -22,22 +22,23 @@
         <activity
             android:name=".BuscaActivity"
             android:label="@string/searchLabel"
-            android:theme="@style/Theme.MyCompatTheme">
-
-            <intent-filter>
-                <action android:name="android.intent.action.SEARCH" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-            <meta-data
-                android:name="android.app.searchable"
-                android:resource="@xml/busca" />
-        </activity>
+            android:theme="@style/Theme.MyCompatTheme" />
 
         <activity android:name=".view.CategoriasActivity" />
         <activity android:name=".view.NoticiaActivity" />
         <activity
             android:name=".control.NoticiasController"
-            android:theme="@style/Theme.MyCompatTheme" />
+            android:theme="@style/Theme.MyCompatTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
+            <meta-data
+                android:name="android.app.default_searchable"
+                android:value="com.notech.control.NoticasController" />
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/busca" />
+        </activity>
 
     </application>
 

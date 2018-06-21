@@ -2,6 +2,7 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical" >
@@ -33,26 +34,24 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="16dp"
-                android:onClick="abrirNoticia"
                 android:scaleType="centerCrop"
-                card_view:srcCompat="@drawable/mcafee_do_mit" />
+                tools:src="@drawable/mcafee_do_mit" />
 
             <TextView
                 android:id="@+id/titulo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/imagem"
-                android:onClick="abrirNoticia"
-                android:text="@string/titulo"
                 android:textColor="@android:color/black"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:text="@string/titulo"/>
 
             <TextView
                 android:id="@+id/descricao"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Descriçao"
+                tools:text="Descriçao"
                 android:layout_below="@+id/titulo" />
 
             <TextView
@@ -60,7 +59,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/descricao"
-                android:text="@string/autor"
+                tools:text="@string/autor"
                 android:textColor="@android:color/black" />
 
             <TextView
@@ -70,7 +69,7 @@
                 android:layout_below="@+id/descricao"
                 android:layout_toRightOf="@+id/autor"
                 android:layout_marginLeft="8dp"
-                android:text="@string/data" />
+                tools:text="@string/data" />
 
             <!-- Se a busca tem um ActionBar com essas funções
             qual o motivo desses botoes? -->
@@ -79,8 +78,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignRight="@+id/imagem"
-                card_view:srcCompat="@drawable/ic_action_add_favoritos"
-                />
+                tools:srcCompat="@drawable/ic_action_add_favoritos" />
 
             <ImageView
                 android:id="@+id/botaoMarcador"
@@ -88,8 +86,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="8dp"
                 android:layout_toLeftOf="@+id/botaoFavorito"
-                card_view:srcCompat="@drawable/ic_action_add_marcador"
-                />
+                tools:srcCompat="@drawable/ic_action_add_marcador" />
 
         </RelativeLayout>
 

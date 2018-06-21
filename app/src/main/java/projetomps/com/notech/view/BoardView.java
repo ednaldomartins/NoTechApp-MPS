@@ -65,12 +65,17 @@ public class BoardView extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.list_noticia, container, false);
+        View view = inflater.inflate(R.layout.recycler_view_frag, container, false);
         rv = (RecyclerView) view.findViewById(R.id.rvNoticias);
         layoutManager = new LinearLayoutManager(getContext());
         rv.setLayoutManager(layoutManager);
 
-        adapter = new NoticiaAdapter(noticias, getContext(), rv);
+        adapter = new NoticiaAdapter(noticias, new NoticiaAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(Noticia item) {
+
+            }
+        });
         rv.setAdapter(adapter);
 
         return view;

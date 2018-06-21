@@ -1,135 +1,129 @@
 package projetomps.com.notech.control;
 
-import android.support.v4.app.FragmentTransaction;
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.support.design.widget.AppBarLayout;
-import android.support.design.widget.CollapsingToolbarLayout;
+import android.app.SearchManager;
+import android.content.Context;
+import android.content.res.Configuration;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
+import android.support.v7.widget.SearchView;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageView;
-
-import com.squareup.picasso.Picasso;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.ByteArrayOutputStream;
-import java.util.ArrayList;
-import java.util.List;
 
 import projetomps.com.notech.R;
-import projetomps.com.notech.control.adapters.NoticiaAdapter;
 import projetomps.com.notech.model.Noticia;
-import projetomps.com.notech.view.BoardView;
-import projetomps.com.notech.view.CategoriasActivity;
-import projetomps.com.notech.view.NoticiaActivity;
+import projetomps.com.notech.view.NoticiaDetalhesFragment;
+import projetomps.com.notech.view.RecyclerViewFragment;
 
-public class NoticiasController extends AppCompatActivity {
+public class NoticiasController extends AppCompatActivity implements RecyclerViewFragment.DataPassListener{
 
-    private RecyclerView recyclerView;
-    private BoardView board;
-    private NoticiaAdapter adapter;
-    private List<Noticia> listaNoticia;
+    public static final String TAG = "NoticiasController";
+
+    private ActionBarDrawerToggle drawerToggle;
+    private DrawerLayout drawerLayout;
+    private static RecyclerViewFragment recyclerViewFragment;
+    private static NoticiaDetalhesFragment noticiaDetalhesFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-/*
-        if(savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.rvNoticias, new BoardView(), "board").commit();
-
-        }*/
         setContentView(R.layout.board_view);
 
-        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.rvNoticias, new BoardView());
-        ft.commit();
-
-        recyclerView = findViewById(R.id.rvNoticias);
-
-        listaNoticia = new ArrayList<>();
-        adapter = new NoticiaAdapter(listaNoticia, this, recyclerView);
-
-        recyclerView.setLayoutManager(new LinearLayoutManager((this)));
-        recyclerView.setAdapter(adapter);
-
-        //testando localmente
-        preparaNoticias();
-
-
-    }
-
-    private void initCollapsingBar(){
-        final CollapsingToolbarLayout collapsingToolbar = findViewById(R.id.collapsing_toolbar);
-        collapsingToolbar.setTitle(" ");
-        AppBarLayout appBarLayout = findViewById(R.id.appbar);
-        appBarLayout.setExpanded(true);
-
-        // hiding & showing the title when toolbar expanded & collapsed
-        appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
-            boolean isShow = false;
-            int scrollRange = -1;
-
-            @Override
-            public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
-                if (scrollRange == -1) {
-                    scrollRange = appBarLayout.getTotalScrollRange();
-                }
-                if (scrollRange + verticalOffset == 0) {
-                    collapsingToolbar.setTitle(getString(R.string.app_name));
-                    isShow = true;
-                } else if (isShow) {
-                    collapsingToolbar.setTitle(" ");
-                    isShow = false;
-                }
-            }
-        });
-    }
-
-    private void preparaNoticias() {
-        //TODO: procurar noticias pela API GOOGLE NEWS
-        JSONObject json = null;
-        try {
-            json = new JSONObject(getResources().getString(R.string.json));
-        } catch (JSONException e) {
-            e.printStackTrace();
+        if (savedInstanceState == null) {
+            recyclerViewFragment = new RecyclerViewFragment();
+            getSupportFragmentManager().beginTransaction()
+            .replace(R.id.listaNoticias, recyclerViewFragment)
+            .commit();
         }
-        Noticia noticia = Noticia.fromJson(json);
-        listaNoticia.add(noticia);
 
-        adapter.notifyDataSetChanged();
+        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        setupDrawer();
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
+
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);
+
+        SearchManager manager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+
+        SearchView searchView = (SearchView) menu.findItem(R.id.search).getActionView();
+
+        searchView.setSearchableInfo(manager.getSearchableInfo(getComponentName()));
+
+        //TODO: separar listeners
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                //TODO: BUSCA
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return false;
+            }
+        });
+
         return true;
     }
 
-    public void abrirNoticia (View view) {
+    @Override
+    protected void onPostCreate(Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
 
-        Bitmap bmp = BitmapFactory.decodeResource(getResources(), R.drawable.mcafee_do_mit);
-        ByteArrayOutputStream stream = new ByteArrayOutputStream();
-        bmp.compress(Bitmap.CompressFormat.JPEG, 100, stream);
-        byte[] imagemMateria = stream.toByteArray();
-
-        Intent intent = new Intent(NoticiasController.this, NoticiaActivity.class);
-        intent.putExtra("imagem", imagemMateria );
-        intent.putExtra("titulo", getResources().getString(R.string.titulo));
-        intent.putExtra("texto", getResources().getString(R.string.noticia_mcafee));
-        intent.putExtra("autor", getResources().getString(R.string.autor));
-        intent.putExtra("data", getResources().getString(R.string.data));
-        startActivity(intent);
-
+        // Sync the toggle state after onRestoreInstanceState has occurred.
+        drawerToggle.syncState();
     }
 
+    private void setupDrawer() {
+        drawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.app_name, R.string.app_name){
+            @Override
+            public void onDrawerOpened(View drawerView) {
+                super.onDrawerOpened(drawerView);
+                invalidateOptionsMenu();
+            }
+
+            @Override
+            public void onDrawerClosed(View drawerView) {
+                super.onDrawerClosed(drawerView);
+                invalidateOptionsMenu();
+            }
+        };
+
+        drawerToggle.setDrawerIndicatorEnabled(true);
+        drawerLayout.setDrawerListener(drawerToggle);
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        drawerToggle.onConfigurationChanged(newConfig);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        if(drawerToggle.onOptionsItemSelected(item)){
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void passData(Noticia noticia) {
+        noticiaDetalhesFragment = new NoticiaDetalhesFragment();
+        Bundle arg = new Bundle();
+        arg.putParcelable("noticia", noticia);
+        noticiaDetalhesFragment.setArguments(arg);
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.viewNoticiaDetalhe, noticiaDetalhesFragment)
+                .commit();
+    }
 }
