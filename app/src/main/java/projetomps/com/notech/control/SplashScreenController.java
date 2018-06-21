@@ -22,12 +22,12 @@ public class SplashScreenController extends AppCompatActivity {
 
         Usuario usuario = cache.getUsuarioDao().getUsuario();
 
-        if(usuario != null) {
+        if(usuario == null) {
             Handler handle = new Handler();
             handle.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    startActivity(new Intent(SplashScreenController.this, NoticiasController.class));
+                    startActivity(new Intent(SplashScreenController.this, LoginController.class));
                     finish();
                 }
 
