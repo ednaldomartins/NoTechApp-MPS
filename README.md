@@ -4,6 +4,10 @@ Esse projeto foi desenvolvido como projeto final da disciplina de Métodos de Pr
 
 A aplicação trata-se de um sistema de identificação de Fake News, tendo como foco principal mostrar as notícias falsas espalhadas pela internet e identificar quais notícias são falsas.
 
+### Branches
+
+Na branch **Master**, localiza-se o código do desenvolvimento inicial do projeto, antes das alterações no escopo do projeto, requeridas pelo professor. A versão completa encontra-se na branch **[Notech](https://github.com/ednaldomartins/NoTech/tree/Notech)**.
+
 ## Design Patterns Utilizados 
 
 * Adapter
