@@ -52,7 +52,6 @@ public class NoticiaClient {
             String url = getApiUrl("everything?q="+query+"&apiKey="+API_KEY);
             client.get(URLEncoder.encode(url, "utf-8"), handler);
         }  catch (UnsupportedEncodingException e) {
-            //TODO: Tratar excessao
             e.printStackTrace();
         }
     }
@@ -67,7 +66,6 @@ public class NoticiaClient {
             String url = getApiUrl("top-headlines?sources="+source+"&apiKey="+API_KEY);
             client.get(URLEncoder.encode(url, "utf-8"), handler);
         } catch (UnsupportedEncodingException e) {
-            //TODO: Tratar excessao
             e.printStackTrace();
         }
     }

@@ -74,11 +74,9 @@ public class NoticiasController extends AppCompatActivity implements RecyclerVie
 
         searchView.setSearchableInfo(manager.getSearchableInfo(getComponentName()));
 
-        //TODO: separar listeners
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-                //TODO: BUSCA
                 bancoFacade.addComando(new GetNoticias(
                         query, getResources().getString(R.string.news_api_key)));
                 bancoFacade.executaComando();

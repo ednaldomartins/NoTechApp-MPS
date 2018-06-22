@@ -51,7 +51,6 @@ public class NoticiaAdapter extends RecyclerView.Adapter<NoticiaAdapter.MyViewHo
     @Override
     public void onBindViewHolder(@NonNull final MyViewHolder holder, int position) {
         Log.d("NoticiaAdapter", "Element "+position+" set.");
-        // TODO: usar client
 
         holder.bind(noticias.get(position), listener);
     }

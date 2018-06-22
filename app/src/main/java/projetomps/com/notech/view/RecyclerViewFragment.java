@@ -96,25 +96,4 @@ public class RecyclerViewFragment extends Fragment{
         mAdapter.swapList(noticias);
     }
 
-    private void initNoticias() {
-        //TODO: retornar noticias no news
-        //new NoticiaClient(getResources().getString(R.string.news_api_key)).GetNoticias("QUERY", null);
-
-        noticias = new ArrayList<>();
-        NoticiaBuilder builder = new NoticiaBuilder(new NoticiaJobsBuilder());
-        JSONObject json = null;
-        try {
-            json = new JSONObject(getResources().getString(R.string.json));
-
-            builder.buildFromJson(json);
-        } catch (JSONException e) {
-            Log.d(TAG, e.getMessage());
-        }
-
-        //mock
-        noticias.add(builder.getNoticia());
-        noticias.add(builder.getNoticia());
-        noticias.add(builder.getNoticia());
-        noticias.add(builder.getNoticia());
-    }
 }
