@@ -32,7 +32,7 @@ public class ComentarioDAOTest {
         contexto = InstrumentationRegistry.getContext();
         cache = Room.inMemoryDatabaseBuilder(contexto, Cache.class).build();
         comentarioDAO = cache.getComentarioDao();
-        comentario = new Comentario(1, "testando", "alef", 1, 1, 1);
+        comentario = new Comentario(1, "testando", "alef", 1, 1, 1, 1);
     }
 
     @After
@@ -43,18 +43,18 @@ public class ComentarioDAOTest {
     @Test
     public void insertComentario() {
         comentarioDAO.insert(comentario);
-        List<Comentario> teste = comentarioDAO.getComentarioById(1);
+        Comentario teste = comentarioDAO.getComentarioById(1);
 
-        Assert.assertEquals(teste.isEmpty(), false);
+        Assert.assertNotNull(comentario);
     }
 
     @Test
     public void getComentario() {
-        Comentario comentario1 = new Comentario(2, "testando", "alef",1,1,1);
+        Comentario comentario1 = new Comentario(2, "testando", "alef",1,1,1, 1);
         comentarioDAO.insert(comentario);
         comentarioDAO.insert(comentario1);
 
-        List<Comentario> teste = comentarioDAO.getComentarios();
+        List<Comentario> teste = comentarioDAO.getComentariosByFonte(1);
 
         Assert.assertEquals(teste.size(), 2);
     }
@@ -65,7 +65,7 @@ public class ComentarioDAOTest {
 
         comentarioDAO.delete(comentario);
 
-        List<Comentario> teste = comentarioDAO.getComentarios();
+        List<Comentario> teste = comentarioDAO.getComentariosByFonte(1);
 
         Assert.assertEquals(teste.isEmpty(), true);
     }

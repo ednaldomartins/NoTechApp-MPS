@@ -9,7 +9,7 @@ import projetomps.com.notech.model.Comentario;
 import projetomps.com.notech.model.Usuario;
 
 //SINGLETON
-@Database(entities = {Comentario.class, Usuario.class}, version = 1)
+@Database(entities = {Comentario.class, Usuario.class}, version = 2)
 public abstract class Cache extends RoomDatabase {
     private static final String DB_NAME = "cache.db";
     private static volatile Cache instancia= null;

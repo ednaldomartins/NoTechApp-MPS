@@ -6,6 +6,8 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import java.io.File;
+
 import projetomps.com.notech.R;
 import projetomps.com.notech.data.local.Cache;
 import projetomps.com.notech.model.Usuario;
@@ -18,7 +20,7 @@ public class SplashScreenController extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
 
-        Cache cache = Room.databaseBuilder(this, Cache.class, "cache.db").allowMainThreadQueries().build();
+        Cache cache = Room.databaseBuilder(this, Cache.class, "cache.db").allowMainThreadQueries().fallbackToDestructiveMigration().build();
 
         Usuario usuario = cache.getUsuarioDao().getUsuario();
 

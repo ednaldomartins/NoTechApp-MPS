@@ -1,28 +1,28 @@
 package projetomps.com.notech.data.remote;
 
 import android.support.annotation.NonNull;
+import android.util.Log;
 
-import com.loopj.android.http.AsyncHttpClient;
-import com.loopj.android.http.JsonHttpResponseHandler;
+import com.loopj.android.http.*;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 
-import projetomps.com.notech.R;
-
-//Façade
+/**
+ * Cliente do servidor de noticias
+ */
 public class NoticiaClient {
-    private static final String API_BASE_URL = "https://newsapi.org/v2/";
+    private static final String API_BASE_URL = "http://newsapi.org/v2/";
     private static String API_KEY;
     private AsyncHttpClient cliente;
 
     /**
      * Contrutor com chave da api google news
-     * @param API_KEY Chave da api google news
+     * @param api_key Chave da api google news
      */
-    public NoticiaClient(final String API_KEY) {
+    public NoticiaClient(final String api_key) {
         cliente = new AsyncHttpClient();
-        this.API_KEY = API_KEY;
+        API_KEY = api_key;
     }
 
     /**
@@ -41,8 +41,8 @@ public class NoticiaClient {
      */
     public void getNoticias(final String query, JsonHttpResponseHandler handler) {
         try {
-            String url = getApiUrl("everything?q="+query+"&"+API_KEY);
-            cliente.get(url + URLEncoder.encode(query, "utf-8"), handler);
+            String url = getApiUrl("everything?q="+query+"&apiKey="+API_KEY);
+            cliente.get(URLEncoder.encode(url, "utf-8"), handler);
         }  catch (UnsupportedEncodingException e) {
             //TODO: Tratar excessao
             e.printStackTrace();
@@ -54,10 +54,10 @@ public class NoticiaClient {
      * @param source fonte
      * @param handler handler http
      */
-    public void getNoticiasFonte(final String source, JsonHttpResponseHandler handler) {
+    public void getNoticiasHeadlines(final String source, JsonHttpResponseHandler handler) {
         try {
-            String url = getApiUrl("top-headlines?source="+source+"&"+API_KEY);
-            cliente.get(url + URLEncoder.encode(source, "utf-8"), handler);
+            String url = getApiUrl("top-headlines?source="+source+"&apiKey="+API_KEY);
+            cliente.get(URLEncoder.encode(url, "utf-8"), handler);
         } catch (UnsupportedEncodingException e) {
             //TODO: Tratar excessao
             e.printStackTrace();
