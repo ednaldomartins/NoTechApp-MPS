@@ -6,10 +6,19 @@ import android.arch.persistence.room.PrimaryKey;
 
 import java.io.Serializable;
 
+import projetomps.com.notech.util.noticias.OrdenadorTemplate;
+import projetomps.com.notech.util.noticias.OrdenarComentariosPorCurtida;
+import projetomps.com.notech.util.noticias.OrdenarComentariosPorId;
+import projetomps.com.notech.util.noticias.OrdenarComentariosPorResposta;
+import projetomps.com.notech.util.noticias.ModoDeOrdenacao;
+
 @Entity(tableName = "comentario_table")
 public class Comentario implements Serializable {
     //MEMENTO - variavel
     //private ComentarioCareTaker careTaker;
+
+    //TEMPLATE METHOD
+    protected OrdenadorTemplate ordenador;
 
     @PrimaryKey @ColumnInfo(name = "id") private int comentarioId;
     private String comentario;
@@ -32,6 +41,28 @@ public class Comentario implements Serializable {
         this.fonteId = fonteId;
     }
 
+    public Comentario() {
+
+    }
+
+
+    //TEMPLATE METHOD
+    public void setModoDeOrdenacao(ModoDeOrdenacao modoDeOrdenacao) {
+        ordenador = null;
+        switch (modoDeOrdenacao) {
+            case quantidadeCurtida:
+                ordenador = new OrdenarComentariosPorCurtida();
+                break;
+            case quantidadeResposta:
+                ordenador = new OrdenarComentariosPorResposta();
+                break;
+            case numeroId:
+                ordenador = new OrdenarComentariosPorId();
+                break;
+            default:
+                break;
+        }
+    }
 
 /*
     //MEMENTO - metodo para editar comentario atual
