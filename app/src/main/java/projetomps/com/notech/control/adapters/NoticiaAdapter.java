@@ -31,7 +31,7 @@ public class NoticiaAdapter extends RecyclerView.Adapter<NoticiaAdapter.MyViewHo
         void onItemClick(Noticia item);
     }
 
-    private final List<Noticia> noticias;
+    private List<Noticia> noticias;
     private final OnItemClickListener listener;
 
     public NoticiaAdapter(final List<Noticia> noticias, OnItemClickListener listener) {
@@ -61,6 +61,12 @@ public class NoticiaAdapter extends RecyclerView.Adapter<NoticiaAdapter.MyViewHo
         return noticias.size();
     }
 
+    public void swapList(List<Noticia> noticias) {
+        this.noticias.clear();
+        this.noticias.addAll(noticias);
+        notifyDataSetChanged();
+    }
+
     public static class MyViewHolder extends RecyclerView.ViewHolder {
         public CardView cv;
         public ImageView imagem;
@@ -80,11 +86,13 @@ public class NoticiaAdapter extends RecyclerView.Adapter<NoticiaAdapter.MyViewHo
         }
 
         public void bind(final Noticia noticia, final OnItemClickListener listener) {
-            //Nao baixa?
             //TODO:descobrir porque nao baixa a imagem
-            //Picasso.get().load(noticias.get(position).getUrlImagem()).into(viewHolder.imagem);
-            //funciona mas nao é o que eu quero
-            Picasso.get().load(R.drawable.mcafee_do_mit).into(imagem);
+            try {
+                Picasso.get().load(noticia.getUrlImagem()).into(imagem);
+            } catch (IllegalArgumentException ex) {
+                //a noticia nao tem imagem
+                Picasso.get().load(R.drawable.mcafee_do_mit).into(imagem);
+            }
             titulo.setText(noticia.getTitulo());
             autor.setText(noticia.getAutor());
             data.setText(noticia.getData());

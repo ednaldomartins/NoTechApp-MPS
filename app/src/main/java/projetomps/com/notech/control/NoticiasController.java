@@ -13,7 +13,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import java.util.List;
+
 import projetomps.com.notech.R;
+import projetomps.com.notech.data.BancoFacade;
 import projetomps.com.notech.model.Noticia;
 import projetomps.com.notech.view.NoticiaDetalhesFragment;
 import projetomps.com.notech.view.RecyclerViewFragment;
@@ -22,6 +25,7 @@ public class NoticiasController extends AppCompatActivity implements RecyclerVie
 
     public static final String TAG = "NoticiasController";
 
+    private BancoFacade bancoFacade;
     private ActionBarDrawerToggle drawerToggle;
     private DrawerLayout drawerLayout;
     private static RecyclerViewFragment recyclerViewFragment;
@@ -30,6 +34,16 @@ public class NoticiasController extends AppCompatActivity implements RecyclerVie
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        bancoFacade = new BancoFacade();
+        bancoFacade.inicializarBanco(this, getResources().getString(R.string.news_api_key));
+        bancoFacade.setCallbackListener(new BancoFacade.OnSuccessListener() {
+            @Override
+            public void onSuccess(List<Noticia> noticias) {
+                recyclerViewFragment.updateAdapterData(noticias);
+            }
+        });
+
         setContentView(R.layout.board_view);
 
         if (savedInstanceState == null) {
@@ -63,6 +77,7 @@ public class NoticiasController extends AppCompatActivity implements RecyclerVie
             @Override
             public boolean onQueryTextSubmit(String query) {
                 //TODO: BUSCA
+                bancoFacade.getNoticias(query);
                 return true;
             }
 

@@ -17,8 +17,9 @@ public class Comentario implements Serializable {
     private int numeroDeCurtidas;
     private int paiId;
     private int respostaId;
+    private int fonteId;
 
-    public Comentario(int comentarioId, String comentario, String usuarioNome, int numeroDeCurtidas, int paiId, int respostaId) {
+    public Comentario(int comentarioId, String comentario, String usuarioNome, int numeroDeCurtidas, int paiId, int respostaId, int fonteId) {
         //MEMENTO - inicialização
         //this.careTaker = new ComentarioCareTaker();
 
@@ -28,6 +29,7 @@ public class Comentario implements Serializable {
         this.numeroDeCurtidas = numeroDeCurtidas;
         this.paiId = paiId;
         this.respostaId = respostaId;
+        this.fonteId = fonteId;
     }
 
 
@@ -51,6 +53,10 @@ public class Comentario implements Serializable {
     //GETs
     public int getId() {
         return comentarioId;
+    }
+
+    public int getFonteId() {
+        return fonteId;
     }
 
     public String getUsuarioNome() {
@@ -103,4 +109,7 @@ public class Comentario implements Serializable {
         this.respostaId = respostaId;
     }
 
+    public void setFonteId(int fonteId) {
+        this.fonteId = fonteId;
+    }
 }

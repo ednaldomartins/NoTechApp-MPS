@@ -40,6 +40,7 @@ public class RecyclerViewFragment extends Fragment{
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //TODO: usar fachada
         initNoticias();
     }
 
@@ -83,6 +84,11 @@ public class RecyclerViewFragment extends Fragment{
         super.onAttach(context);
 
         callack = (DataPassListener) context;
+    }
+
+    public void updateAdapterData(List<Noticia> noticias) {
+        Log.d(TAG, noticias.toString());
+        mAdapter.swapList(noticias);
     }
 
     private void initNoticias() {

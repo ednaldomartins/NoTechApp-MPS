@@ -21,7 +21,6 @@ public class NoticiaDetalhesFragment extends Fragment {
     private static final String TAG = "NoticiaDetalesFragment";
     private View view;
     private Noticia noticia;
-    private TextView titulo, data, texto, autor;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -37,13 +36,10 @@ public class NoticiaDetalhesFragment extends Fragment {
         view = inflater.inflate(R.layout.noticia_detalhe_frag, container, false);
 
         //verificar se passar a imagem seria melhor
-        //nao baixa?
-        //Picasso.get().load(noticia.getUrlImagem()).into((ImageView) view.findViewById(R.id.noticiaImagem));
-        Picasso.get().load(R.drawable.mcafee_do_mit).into((ImageView) view.findViewById(R.id.noticiaImagem));
+        Picasso.get().load(noticia.getUrlImagem()).into((ImageView) view.findViewById(R.id.noticiaImagem));
         ((TextView) view.findViewById(R.id.noticiaTitulo)).setText(noticia.getTitulo());
         ((TextView) view.findViewById(R.id.data)).setText(noticia.getData());
         ((TextView) view.findViewById(R.id.descricao)).setText(R.string.noticia_mcafee);
-        //TODO: baixar do api news
         //((TextView) view.findViewById(R.id.descricao)).setText(noticia.getTexto());
         ((TextView) view.findViewById(R.id.autor)).setText(noticia.getAutor());
 
@@ -62,13 +58,10 @@ public class NoticiaDetalhesFragment extends Fragment {
 
         if(savedInstanceState != null) {
             Noticia estado = (Noticia) savedInstanceState.get("noticia");
-            // nao baixa
-            //Picasso.get().load(estado.getUrlImagem()).into((ImageView) view.findViewById(R.id.noticiaImagem));
-            Picasso.get().load(R.drawable.mcafee_do_mit).into((ImageView) view.findViewById(R.id.noticiaImagem));
+            Picasso.get().load(estado.getUrlImagem()).into((ImageView) view.findViewById(R.id.noticiaImagem));
             ((TextView) view.findViewById(R.id.noticiaTitulo)).setText(estado.getTitulo());
             ((TextView) view.findViewById(R.id.data)).setText(estado.getData());
             ((TextView) view.findViewById(R.id.descricao)).setText(R.string.noticia_mcafee);
-            // download
             //((TextView) view.findViewById(R.id.descricao)).setText(noticia.getTexto());
             ((TextView) view.findViewById(R.id.autor)).setText(estado.getAutor());
         }

@@ -24,14 +24,9 @@ public interface ComentarioDAO {
     void delete(Comentario comentario);
 
     @Query("SELECT * FROM comentario_table WHERE comentario_table.id = :id")
-    List<Comentario> getComentarioById(int id);
+    Comentario getComentarioById(int id);
 
-    @Query("SELECT * FROM comentario_table")
-    List<Comentario> getComentarios();
+    @Query("SELECT * FROM comentario_table WHERE comentario_table.fonteId = :id")
+    List<Comentario> getComentariosByFonte(int id);
 
-    @Query("SELECT * FROM comentario_table WHERE comentario_table.id = comentario_table.respostaId")
-    List<Comentario> getRespostas();
-
-    @Query("SELECT * FROM comentario_table WHERE comentario_table.paiId = :id")
-    List<Comentario> getRespostasPorPai(int id);
 }
