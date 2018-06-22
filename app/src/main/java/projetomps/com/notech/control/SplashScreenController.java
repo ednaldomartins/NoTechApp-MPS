@@ -29,7 +29,7 @@ public class SplashScreenController extends AppCompatActivity {
             handle.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    startActivity(new Intent(SplashScreenController.this, NoticiasController.class));
+                    startActivity(new Intent(SplashScreenController.this, LoginController.class));
                     finish();
                 }
 
