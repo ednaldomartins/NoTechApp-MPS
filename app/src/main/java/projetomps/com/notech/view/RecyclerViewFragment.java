@@ -18,7 +18,9 @@ import java.util.List;
 
 import projetomps.com.notech.R;
 import projetomps.com.notech.control.adapters.NoticiaAdapter;
+import projetomps.com.notech.data.BancoFacade;
 import projetomps.com.notech.model.Noticia;
+import projetomps.com.notech.util.command.GetNoticiasHeadlines;
 import projetomps.com.notech.util.noticias.NoticiaBuilder;
 import projetomps.com.notech.util.noticias.NoticiaJobsBuilder;
 
@@ -40,8 +42,12 @@ public class RecyclerViewFragment extends Fragment{
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //TODO: usar fachada
-        initNoticias();
+
+        noticias = new ArrayList<>();
+
+        BancoFacade.getInstancia().addComando(
+                new GetNoticiasHeadlines("google-news", getResources().getString(R.string.news_api_key)));
+        BancoFacade.getInstancia().executaComando();
     }
 
     @Override
@@ -87,13 +93,12 @@ public class RecyclerViewFragment extends Fragment{
     }
 
     public void updateAdapterData(List<Noticia> noticias) {
-        Log.d(TAG, noticias.toString());
         mAdapter.swapList(noticias);
     }
 
     private void initNoticias() {
         //TODO: retornar noticias no news
-        //new NoticiaClient(getResources().getString(R.string.news_api_key)).getNoticias("QUERY", null);
+        //new NoticiaClient(getResources().getString(R.string.news_api_key)).GetNoticias("QUERY", null);
 
         noticias = new ArrayList<>();
         NoticiaBuilder builder = new NoticiaBuilder(new NoticiaJobsBuilder());

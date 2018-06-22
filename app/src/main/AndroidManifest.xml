@@ -21,6 +21,11 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".control.LoginController"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen">
+
+        </activity>
+        <activity
             android:name=".control.NoticiasController"
             android:theme="@style/Theme.MyCompatTheme">
             <intent-filter>

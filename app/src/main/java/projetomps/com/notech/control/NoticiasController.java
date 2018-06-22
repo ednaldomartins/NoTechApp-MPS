@@ -9,6 +9,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.SearchView;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -18,6 +19,7 @@ import java.util.List;
 import projetomps.com.notech.R;
 import projetomps.com.notech.data.BancoFacade;
 import projetomps.com.notech.model.Noticia;
+import projetomps.com.notech.util.command.GetNoticias;
 import projetomps.com.notech.view.NoticiaDetalhesFragment;
 import projetomps.com.notech.view.RecyclerViewFragment;
 
@@ -35,11 +37,11 @@ public class NoticiasController extends AppCompatActivity implements RecyclerVie
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        bancoFacade = new BancoFacade();
+        bancoFacade = BancoFacade.getInstancia();
         bancoFacade.inicializarBanco(this, getResources().getString(R.string.news_api_key));
-        bancoFacade.setCallbackListener(new BancoFacade.OnSuccessListener() {
+        bancoFacade.setNoticiaCallbackListener(new BancoFacade.OnSuccessNoticiaListener() {
             @Override
-            public void onSuccess(List<Noticia> noticias) {
+            public void onSuccessNoticicia(List<Noticia> noticias) {
                 recyclerViewFragment.updateAdapterData(noticias);
             }
         });
@@ -77,7 +79,9 @@ public class NoticiasController extends AppCompatActivity implements RecyclerVie
             @Override
             public boolean onQueryTextSubmit(String query) {
                 //TODO: BUSCA
-                bancoFacade.getNoticias(query);
+                bancoFacade.addComando(new GetNoticias(
+                        query, getResources().getString(R.string.news_api_key)));
+                bancoFacade.executaComando();
                 return true;
             }
 

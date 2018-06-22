@@ -58,7 +58,7 @@ public class NoticiaAdapter extends RecyclerView.Adapter<NoticiaAdapter.MyViewHo
 
     @Override
     public int getItemCount() {
-        return noticias.size();
+        return this.noticias.size();
     }
 
     public void swapList(List<Noticia> noticias) {
@@ -86,7 +86,6 @@ public class NoticiaAdapter extends RecyclerView.Adapter<NoticiaAdapter.MyViewHo
         }
 
         public void bind(final Noticia noticia, final OnItemClickListener listener) {
-            //TODO:descobrir porque nao baixa a imagem
             try {
                 Picasso.get().load(noticia.getUrlImagem()).into(imagem);
             } catch (IllegalArgumentException ex) {

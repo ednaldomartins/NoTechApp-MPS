@@ -59,7 +59,7 @@
             android:id="@+id/comentar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/noticiaTitulo"
+            android:layout_below="@+id/noticiaTitulo"
             android:layout_toRightOf="@+id/curtir"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="4dp"
@@ -80,7 +80,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:layout_below="@id/autor"
+            android:layout_below="@id/curtir"
             tools:text="@string/noticia_mcafee" />
     </RelativeLayout>
 

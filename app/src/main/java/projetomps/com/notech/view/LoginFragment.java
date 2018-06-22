@@ -3,6 +3,8 @@ package projetomps.com.notech.view;
 
 import android.os.Bundle;
 import android.app.Fragment;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,9 +19,6 @@ import projetomps.com.notech.R;
  */
 public class LoginFragment extends Fragment {
 
-    private TextView login, senha;
-    private EditText loginUsuario, senhaUsuario;
-
     public LoginFragment() {
         // Required empty public constructor
         int i;
@@ -32,12 +31,21 @@ public class LoginFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_login, container, false);
 
-        login = (TextView) view.findViewById(R.id.loginLogin);
-        senha = (TextView) view.findViewById(R.id.loginSenha);
-        loginUsuario = (EditText) view.findViewById(R.id.loginLoginUsuario);
-        senhaUsuario = (EditText) view.findViewById(R.id.loginSenhaUsuario);
-
         return view;
+    }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        if(savedInstanceState != null) {
+
+        }
     }
 
 }

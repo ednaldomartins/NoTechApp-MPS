@@ -34,6 +34,16 @@ public class SplashScreenController extends AppCompatActivity {
                 }
 
             }, timer);
+        } else {
+            Handler handle = new Handler();
+            handle.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    startActivity(new Intent(SplashScreenController.this, NoticiasController.class));
+                    finish();
+                }
+
+            }, timer);
         }
     }
 }

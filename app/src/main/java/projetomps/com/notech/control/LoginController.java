@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -21,43 +20,34 @@ public class LoginController extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login_controller);
+        setContentView(R.layout.activity_login_controller_view);
 
-        sair = (TextView) findViewById(R.id.loginSair);
-        textoFragmento = (TextView) findViewById(R.id.loginTextoFragmento);
-        textoFragmento.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+    }
 
-                FragmentManager loginFragment = getFragmentManager();
-                FragmentTransaction fragmentTransaction = loginFragment.beginTransaction();
+    public void onClickSair(View v) {
+        startActivity(new Intent(LoginController.this, NoticiasController.class));
+    }
 
-                switch (fragmentoAtivo){
-                    case "telaDeCadastro":
-                        //LoginFragment loginFragment = new LoginFragment();
-                        fragmentTransaction.add(R.id.loginLayoutFragmento, new LoginFragment());
-                        fragmentTransaction.commit();
-                        fragmentoAtivo = "telaDeLogin";
-                        textoFragmento.setText("Deseja se cadastrar? então click aqui!");
-                        break;
+    public void onClickSwitch(View v) {
+        FragmentManager loginFragment = getFragmentManager();
+        FragmentTransaction fragmentTransaction = loginFragment.beginTransaction();
 
-                    case "telaDeLogin":
-                        fragmentTransaction.add(R.id.loginLayoutFragmento, new CadastroFragment());
-                        fragmentTransaction.commit();
-                        fragmentoAtivo = "telaDeCadastro";
-                        textoFragmento.setText("Deseja fazer login? então click aqui!");
-                        break;
+        switch (fragmentoAtivo){
+            case "telaDeCadastro":
+                //LoginFragment loginFragment = new LoginFragment();
+                fragmentTransaction.replace(R.id.loginLayoutFragmento, new LoginFragment());
+                fragmentTransaction.commit();
+                fragmentoAtivo = "telaDeLogin";
+                textoFragmento.setText("Deseja se cadastrar? então click aqui!");
+                break;
 
-                }
+            case "telaDeLogin":
+                fragmentTransaction.replace(R.id.loginLayoutFragmento, new CadastroFragment());
+                fragmentTransaction.commit();
+                fragmentoAtivo = "telaDeCadastro";
+                textoFragmento.setText("Deseja fazer login? então click aqui!");
+                break;
 
-            }
-        });
-
-        sair.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(LoginController.this, NoticiasController.class));
-            }
-        });
+        }
     }
 }
