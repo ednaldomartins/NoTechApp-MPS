@@ -12,23 +12,32 @@ import java.util.Date;
 @Entity(tableName = "usuario_tabela")
 public class Usuario implements Serializable {
     @PrimaryKey @NonNull private String nome;
+    private String login;
+    private String senha;
     private String email;
     @TypeConverters(Converters.class) private ArrayList<Integer> noticiasFavoritas;
     @TypeConverters(Converters.class) private ArrayList<Integer> noticiasMarcadas;
     @TypeConverters(Converters.class) private Date horarioLembrete;
 
-    public Usuario(String nome, String email, ArrayList<Integer> noticiasFavoritas, ArrayList<Integer> noticiasMarcadas, Date horarioLembrete) {
+
+    public Usuario(String nome, String login, String senha) {
         this.nome = nome;
-        this.email = email;
-        this.noticiasFavoritas = noticiasFavoritas;
-        this.noticiasMarcadas = noticiasMarcadas;
-        this.horarioLembrete = horarioLembrete;
+        this.login = login;
+        this.senha = senha;
     }
 
 
     //GETs
     public String getNome() {
         return nome;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public String getSenha() {
+        return senha;
     }
 
     public String getEmail() {
@@ -52,6 +61,14 @@ public class Usuario implements Serializable {
     //SETs
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public void  setSenha(String senha) {
+        this.senha = senha;
     }
 
     public void setEmail(String email) {

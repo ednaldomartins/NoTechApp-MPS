@@ -24,6 +24,12 @@ public interface UsuarioDAO {
     @Query("SELECT * FROM usuario_tabela WHERE nome LIKE :nome")
     Usuario getUsuario(String nome);
 
+    @Query("SELECT * FROM usuario_tabela WHERE login LIKE :login")
+    Usuario getUsuarioLogin(String login);
+
     @Query("SELECT * FROM usuario_tabela")
     Usuario getUsuario();
+
+    @Query("DELETE FROM usuario_tabela")
+    void drop();
 }

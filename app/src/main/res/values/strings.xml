@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ifake</string>
+    <string name="app_name">NOtech</string>
     <string name="titulo">McAfee, do MIT: conversa sobre tecnologia deve ser mais positiva</string>
     <string name="autor">Thiago Lavado</string>
     <string name="noticia_mcafee">Mais do que um grande centro de ensino americano, o Massachusetts Institute of Technology (MIT) também tem como missão expandir o conhecimento para outros lugares do mundo. Nesse sentido, é no MIT que está a Iniciativa de Economia Digital (IDE), uma organização que pretende colocar pessoas e negócios juntos em prol da transformação digital.
@@ -37,7 +37,6 @@ Eu quero encorajar o maior número de pessoas a participar e espero aprender e s
     <string name="searchLabel">Buscar noticia</string>
     <string name="continuar_sem_logar">Continuar sem Logar</string>
     <string name="deseja_se_cadastrar_ent_o_click_aqui">Deseja se cadastrar? então click aqui!</string>
-    <string name="ake">ake</string>
     <string-array name="list_view">
         <item>Categorias</item>
     </string-array>

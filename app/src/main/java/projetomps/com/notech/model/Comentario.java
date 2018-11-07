@@ -18,7 +18,7 @@ public class Comentario implements Serializable {
     //private ComentarioCareTaker careTaker;
 
     //TEMPLATE METHOD
-    protected OrdenadorTemplate ordenador;
+    //protected OrdenadorTemplate ordenador;
 
     @PrimaryKey @ColumnInfo(name = "id") private int comentarioId;
     private String comentario;
@@ -45,7 +45,7 @@ public class Comentario implements Serializable {
 
     }
 
-
+/*
     //TEMPLATE METHOD
     public void setModoDeOrdenacao(ModoDeOrdenacao modoDeOrdenacao) {
         ordenador = null;
@@ -63,7 +63,7 @@ public class Comentario implements Serializable {
                 break;
         }
     }
-
+*/
 /*
     //MEMENTO - metodo para editar comentario atual
     public void escreverComentario (String novoComentario) {
