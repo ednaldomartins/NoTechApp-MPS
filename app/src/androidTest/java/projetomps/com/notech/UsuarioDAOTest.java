@@ -28,7 +28,7 @@ public class UsuarioDAOTest {
         contexto = InstrumentationRegistry.getContext();
         cache = Room.inMemoryDatabaseBuilder(contexto, Cache.class).build();
         usuarioDAO = cache.getUsuarioDao();
-        usuario = new Usuario("alef", "alef_berg@hotmail.com.br", null, null, null);
+        usuario = new Usuario("teste", "teste","teste");
     }
 
     @After
