@@ -57,6 +57,7 @@
 
         <ImageView
             android:id="@+id/comentar"
+            android:onClick="callComentarios"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/noticiaTitulo"

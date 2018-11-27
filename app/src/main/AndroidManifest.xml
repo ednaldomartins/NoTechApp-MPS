@@ -38,6 +38,10 @@
                 android:name="android.app.searchable"
                 android:resource="@xml/busca" />
         </activity>
+        <activity android:name=".view.Comentarios"
+            android:theme="@style/Theme.MyCompatTheme">
+
+        </activity>
 
     </application>
 

@@ -2,6 +2,7 @@ package projetomps.com.notech.control;
 
 import android.app.SearchManager;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
@@ -20,6 +21,7 @@ import projetomps.com.notech.R;
 import projetomps.com.notech.data.BancoFacade;
 import projetomps.com.notech.model.Noticia;
 import projetomps.com.notech.util.command.GetNoticias;
+import projetomps.com.notech.view.Comentarios;
 import projetomps.com.notech.view.NoticiaDetalhesFragment;
 import projetomps.com.notech.view.RecyclerViewFragment;
 
@@ -146,5 +148,9 @@ public class NoticiasController extends AppCompatActivity implements RecyclerVie
         transaction.addToBackStack(null);
 
         transaction.commit();
+    }
+
+    public void callComentarios(View v) {
+        startActivity(new Intent(NoticiasController.this, Comentarios.class));
     }
 }

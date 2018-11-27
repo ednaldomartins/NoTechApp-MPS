@@ -1,0 +1,125 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 3,
+    "identityHash": "c0765b8769e8fde0eaf6eb1450cbd3e0",
+    "entities": [
+      {
+        "tableName": "comentario_table",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `comentario` TEXT, `usuarioNome` TEXT, `numeroDeCurtidas` INTEGER NOT NULL, `paiId` INTEGER NOT NULL, `respostaId` INTEGER NOT NULL, `fonteId` INTEGER NOT NULL, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "comentarioId",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "comentario",
+            "columnName": "comentario",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "usuarioNome",
+            "columnName": "usuarioNome",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "numeroDeCurtidas",
+            "columnName": "numeroDeCurtidas",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "paiId",
+            "columnName": "paiId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "respostaId",
+            "columnName": "respostaId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "fonteId",
+            "columnName": "fonteId",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "usuario_tabela",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`nome` TEXT NOT NULL, `login` TEXT, `senha` TEXT, `email` TEXT, `noticiasFavoritas` TEXT, `noticiasMarcadas` TEXT, `horarioLembrete` INTEGER, PRIMARY KEY(`nome`))",
+        "fields": [
+          {
+            "fieldPath": "nome",
+            "columnName": "nome",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "login",
+            "columnName": "login",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "senha",
+            "columnName": "senha",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "email",
+            "columnName": "email",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "noticiasFavoritas",
+            "columnName": "noticiasFavoritas",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "noticiasMarcadas",
+            "columnName": "noticiasMarcadas",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "horarioLembrete",
+            "columnName": "horarioLembrete",
+            "affinity": "INTEGER",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "nome"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"c0765b8769e8fde0eaf6eb1450cbd3e0\")"
+    ]
+  }
+}

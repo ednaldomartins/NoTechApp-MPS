@@ -1,0 +1,107 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "73a67bc18eefe6c2644985b57f5d7590",
+    "entities": [
+      {
+        "tableName": "comentario_table",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `comentario` TEXT, `usuarioNome` TEXT, `numeroDeCurtidas` INTEGER NOT NULL, `paiId` INTEGER NOT NULL, `respostaId` INTEGER NOT NULL, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "comentarioId",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "comentario",
+            "columnName": "comentario",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "usuarioNome",
+            "columnName": "usuarioNome",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "numeroDeCurtidas",
+            "columnName": "numeroDeCurtidas",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "paiId",
+            "columnName": "paiId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "respostaId",
+            "columnName": "respostaId",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "usuario_tabela",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`nome` TEXT NOT NULL, `email` TEXT, `noticiasFavoritas` TEXT, `noticiasMarcadas` TEXT, `horarioLembrete` INTEGER, PRIMARY KEY(`nome`))",
+        "fields": [
+          {
+            "fieldPath": "nome",
+            "columnName": "nome",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "email",
+            "columnName": "email",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "noticiasFavoritas",
+            "columnName": "noticiasFavoritas",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "noticiasMarcadas",
+            "columnName": "noticiasMarcadas",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "horarioLembrete",
+            "columnName": "horarioLembrete",
+            "affinity": "INTEGER",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "nome"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"73a67bc18eefe6c2644985b57f5d7590\")"
+    ]
+  }
+}
